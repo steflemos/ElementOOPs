@@ -4,11 +4,11 @@ public class Creatures {
     
      Random aleatorio = new Random();
 
-     int poder = aleatorio.nextInt(30 - 10) + 10;
-     int ataque = aleatorio.nextInt(15 - 5) + 5;
-     int defesa = aleatorio.nextInt(15 - 5) + 5;
-     int velocidade = aleatorio.nextInt(10 - 1) + 1;
-     int pontosDeVida = aleatorio.nextInt(400 - 200) + 200;
+     protected int poder = aleatorio.nextInt((30 - 10) +1) + 10;
+     protected int ataque = aleatorio.nextInt((15 - 5) + 1) + 5;
+     protected int defesa = aleatorio.nextInt((15 - 5) + 1) + 5;
+     protected int velocidade = aleatorio.nextInt((10 - 1) + 1) + 1;
+     protected int pontosDeVida = aleatorio.nextInt((400 - 200) + 1) + 200;
 
 public Creatures(){
     getPoder();
@@ -32,11 +32,11 @@ public int getDefesa(){
 }
 
 public int getVelocidade(){
-    return this.defesa;
+    return this.velocidade;
 }
 
 public int getPontosDeVida(){
-    return this.defesa;
+    return this.pontosDeVida;
 }
     
 } // fim da classe Creatures

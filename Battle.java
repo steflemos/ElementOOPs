@@ -7,11 +7,11 @@ public class Battle {
         Random random = new Random();
         
         // Informar quem começa
-        System.out.println("A batalha está prestes a começar!");
+        System.out.println("\nA batalha está prestes a começar!\n");
         
         // Loop para as três batalhas
         for (int batalha = 1; batalha <= 3; batalha++) {
-            System.out.println("Batalha " + batalha);
+            System.out.println("Batalha " + batalha + "\n");
             
             // VELOCIDADE aleatória das criaturas
             int velocidadeCriatura1 = random.nextInt(10) + 1;
@@ -45,7 +45,7 @@ public class Battle {
                     // Verificar se a criatura oponente foi derrotada
                     // Neste exemplo, consideramos que a criatura 2 é derrotada quando seus pontos de vida chegam a 0
                     if (dano >= 10) {
-                        System.out.println("Criatura 2 foi derrotada!");
+                        System.out.println("Criatura 2 foi derrotada!\n");
                         break;
                     }
                 } else if (escolha == 2) {
@@ -56,7 +56,7 @@ public class Battle {
                     
                     // Verificar se a criatura oponente foi derrotada
                     if (dano >= 15) {
-                        System.out.println("Criatura 2 foi derrotada!");
+                        System.out.println("Criatura 2 foi derrotada!\n");
                         break;
                     }
                 } else if (escolha == 3) {

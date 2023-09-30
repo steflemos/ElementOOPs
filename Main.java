@@ -58,57 +58,60 @@ public class Main{
         //     }
         // } while(option != 2);
 
-        while (True){
+       while (true) {
             System.out.print("Iniciar um novo jogo [1] ou sair do programa [2]\n>> ");
             option = scanner.nextInt();
+            
             if (option == 1) {
-                while (True){
+                while (true) {
                     System.out.print("Criaturas disponíveis: \nStoneDev (terra) - [14]\nWaveNerd (água) - [87]\nBurnCoder (fogo) - [65]\nBreezeHacker (ar) - [19]\n");
-
                     System.out.print("Digite o código da criatura escolhida ou digite 2 para sair\n>> ");
                     option = scanner.nextInt();
 
-                    switch(option){
+                    switch (option) {
                         case 14:
-                        // StoneDev stonedev = new StoneDev();
-                        System.out.print("Criatura selecionada: stoneDev");
-                        break;
+                            System.out.print("Criatura selecionada: stoneDev");
+                            break;
                         case 87:
-                        // WaveNerd wavenerd = new WaveNerd();
-                        System.out.print("Criatura selecionada: waveNerd");
-                        break;
+                            System.out.print("Criatura selecionada: waveNerd");
+                            break;
                         case 65:
-                        // BurnCoder burncoder = new BurnCoder();
-                        System.out.print("Criatura selecionada: burncoder");
-                        break;
+                            System.out.print("Criatura selecionada: burncoder");
+                            break;
                         case 19:
-                        // BreezeHacker breezehacker = new BreezeHacker();
-                        System.out.print("Criatura selecionada: breezehacker");
-                        break;
+                            System.out.print("Criatura selecionada: breezehacker");
+                            break;
                         case 2:
                             System.out.print("Saindo...");
-                            break;
+                            return; // Sai do programa completamente
                         default:
-                        System.out.print("Codigo inválido! Por favor, selecione um codigo válido.");
+                            System.out.print("Código inválido! Por favor, selecione um código válido.");
                     }
 
-                    while (True){
-                        System.out.print("Iniciar um torneio [1] ou sair do programa [2]\n>> ");
-                        break;
+                    while (true) {
+                        System.out.print("\nIniciar um torneio [1] ou sair do programa [2]\n>> ");
+                        option = scanner.nextInt();
+                        
+                        if (option == 1 || option == 2) {
+                            break;
+                        }
+                    }
+
+                    if (option == 2) {
+                        System.out.print("Saindo...");
+                        return; // Sai do programa completamente
                     }
                 }
-            } else if (opion == 2){
+            } else if (option == 2) {
                 System.out.print("\nVocê tem certeza que deseja sair? Y/N\n>> ");
-                optionYorN = scanner.nextStr();
-                if (optionYorN == 'Y'){
+                optionYorN = scanner.next();
+                if (optionYorN.equalsIgnoreCase("Y")) {
                     System.out.print("Saindo...");
-                    break;
+                    return; // Sai do programa completamente
                 }
-            } else{
-                System.out.print("\n[ERROR] Digite um código válido\nIniciar um novo jogo [1] ou sair do programa [2]\n>> ");
-                option = scanner.nextInt();
+            } else {
+                System.out.print("\n[ERRO] Digite um código válido\n");
             }
         }
-
     }
 }

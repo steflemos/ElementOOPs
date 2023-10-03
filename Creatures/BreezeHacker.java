@@ -1,3 +1,5 @@
+package Creatures;
+
 public class BreezeHacker extends Creatures {
     
     @Override

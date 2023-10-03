@@ -1,3 +1,5 @@
+package Creatures;
+
 public class WaveNerd extends Creatures {
     
     @Override

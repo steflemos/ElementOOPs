@@ -7,7 +7,9 @@ public class Battle {
         Random random = new Random();
         
         // Informar quem começa
-        System.out.println("\nA batalha está prestes a começar!\n");
+        System.out.println("\n--------------------------------------");
+        System.out.println("|  A batalha está prestes a começar! |");
+        System.out.println("--------------------------------------\n");
         
         // // Loop para as três batalhas
         // for (int batalha = 1; batalha <= 3; batalha++) {

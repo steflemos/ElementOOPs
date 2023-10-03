@@ -1,3 +1,5 @@
+package Creatures;
+
 public class StoneDev extends Creatures {
 
     @Override

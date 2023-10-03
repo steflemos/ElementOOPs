@@ -1,3 +1,5 @@
+package Creatures;
+
 public class BurnCoder extends Creatures {
     
     @Override

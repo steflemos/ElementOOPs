@@ -1,3 +1,5 @@
+package Creatures;
+
 import java.util.Random;
 
 public class Creatures {

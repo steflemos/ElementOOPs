@@ -65,8 +65,12 @@ public class Main {
                     }
 
                     if (option == 2) {
-                        System.out.println("Saindo...");
-                        return; // Sai do programa completamente
+                        System.out.print("\nVocê tem certeza que deseja sair? Y/N\n>> ");
+                         optionYorN = scanner.next();
+                        if (optionYorN.equalsIgnoreCase("Y")) {
+                          System.out.println("Saindo...");
+                          return; // Sai do programa completamente
+                        }
                     } else {
                         // Iniciar a batalha
                         Battle battle = new Battle();

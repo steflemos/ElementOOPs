@@ -1,5 +1,11 @@
 import java.util.Scanner;
 
+import Creatures.BreezeHacker;
+import Creatures.BurnCoder;
+import Creatures.Creatures;
+import Creatures.StoneDev;
+import Creatures.WaveNerd;
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -12,26 +18,31 @@ public class Main {
 
             if (option == 1) {
                 while (true) {
-                    System.out.print("Criaturas disponíveis: \nStoneDev (terra) - [14]\nWaveNerd (água) - [87]\nBurnCoder (fogo) - [65]\nBreezeHacker (ar) - [19]\n");
+                    System.out.print(
+                            "Criaturas disponíveis: \nStoneDev (terra) - [14]\nWaveNerd (água) - [87]\nBurnCoder (fogo) - [65]\nBreezeHacker (ar) - [19]\n");
                     System.out.print("Digite o código da criatura escolhida ou digite 2 para sair\n>> ");
                     option = scanner.nextInt();
 
                     int selectedCreatureCode = 0;
                     switch (option) {
-                       case 14:
-                            System.out.println("Criatura selecionada: StoneDev");
+                        case 14:
+                            Creatures stonedev = new StoneDev();
+                            System.out.print("Criatura selecionada: " + stonedev);
                             selectedCreatureCode = 14; // Armazena o código da criatura
-                             break;
+                            break;
                         case 87:
-                            System.out.println("Criatura selecionada: WaveNerd");
+                            Creatures wavenerd = new WaveNerd();
+                            System.out.print("Criatura selecionada: " + wavenerd);
                             selectedCreatureCode = 87;
                             break;
                         case 65:
-                            System.out.println("Criatura selecionada: BurnCoder");
+                            Creatures burncoder = new BurnCoder();
+                            System.out.print("Criatura selecionada: " + burncoder);
                             selectedCreatureCode = 65;
                             break;
                         case 19:
-                            System.out.println("Criatura selecionada: BreezeHacker");
+                            Creatures breezehacker = new BreezeHacker();
+                            System.out.print("Criatura selecionada: " + breezehacker);
                             selectedCreatureCode = 19;
                             break;
                         case 2:
@@ -58,7 +69,7 @@ public class Main {
                         return; // Sai do programa completamente
                     } else {
                         // Iniciar a batalha
-                    Battle battle = new Battle();
+                        Battle battle = new Battle();
                         battle.startBattle(selectedCreatureCode); // Passa o código da criatura escolhida
                     }
                 }

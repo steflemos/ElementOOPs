@@ -7,8 +7,7 @@ public class Teste{
     int optionMenuInicial;
     int optionExit;
     boolean exit;
-
-        //O jogo inicia apresentando um menu para o jogador, oferecendo as opções de iniciar um novo jogo ou sair do programa. o programa deve exibir uma mensagem e solicitar a confirmação da ação.
+    int optionCreature;
 
         do{
             exit = true;
@@ -26,8 +25,44 @@ public class Teste{
                 } 
             } else if (optionMenuInicial == 1){
                 System.out.println("iniciando jogo");
+                do {
+                    System.out.println("teste inicio do jogo");
 
-                break;
+                    System.out.println("criaturas disponiveis 1 e 2 999 para sair");
+                    optionCreature = scanner.nextInt();
+
+                    switch (optionCreature){
+                        case 1:
+                            System.out.println("escolheu 1");
+                            System.out.println("aqui começa a batalha");
+
+                            exit = false;
+                            break;
+
+                        case 2:
+                            System.out.println("escolheu 2");
+                            System.out.println("aqui começa a batalha");
+
+                            exit = false;
+                            break;
+
+                        case 999:
+                            System.out.println("saindo...");
+                            exit = false;
+                            break;
+                            //implementar a opção se o usuário tem certeza
+                        default:
+                            System.out.println("código inválido");
+                            break;
+                    }
+
+
+                } while (exit);
+
+                //Uma vez escolhida a criatura, 
+                //um menu deve ser apresentado com as opções de iniciar o torneio ou sair do programa
+
+                // break;
             } else {
                 System.out.println("opção inválida");
             }

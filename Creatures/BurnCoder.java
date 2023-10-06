@@ -9,4 +9,12 @@ public class BurnCoder extends Creatures {
                 getPoder(), getAtaque(), getDefesa(), getVelocidade(), getPontosDeVida());
     }
 
+    public int getCode() {
+        return 65; // Retorne o código correspondente a criatura
+    }
+
+    public String getName() {
+        return "BurnCoder";  // Retorne o nome correspondente a criatura
+    }
+
 }

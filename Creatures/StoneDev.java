@@ -9,4 +9,12 @@ public class StoneDev extends Creatures {
                 getPoder(), getAtaque(), getDefesa(), getVelocidade(), getPontosDeVida());
     }
 
+    public int getCode() {
+        return 14; // Retorne o código correspondente a criatura
+    }
+
+    public String getName() {
+        return "StoneDev";  // Retorne o nome correspondente a criatura
+    }
+
 }

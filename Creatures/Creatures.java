@@ -2,7 +2,7 @@ package Creatures;
 
 import java.util.Random;
 
-public class Creatures {
+public abstract class Creatures {
 
     Random aleatorio = new Random();
 
@@ -59,5 +59,8 @@ public class Creatures {
     public void setPontosDeVida(int pontosDeVida) {
         this.pontosDeVida = pontosDeVida;
     }
+
+    public abstract int getCode();
+    public abstract String getName();
 
 } // fim da classe Creatures

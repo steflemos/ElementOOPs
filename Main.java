@@ -87,6 +87,7 @@ public class Main {
             } else {
                 System.out.println("\n[ERRO] Digite um código válido\n");
             }
-        }
+        } 
+
     }
 }

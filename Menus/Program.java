@@ -2,8 +2,10 @@ package Menus;
 
 import java.util.Scanner;
 
+import Creatures.Creatures;
+import Tournament.Battle;
 
-public class Program extends Menu{
+public class Program extends Menu {
     int optionMenuInicial;
     int optionExit;
     boolean exit;
@@ -11,25 +13,30 @@ public class Program extends Menu{
     Scanner scanner = new Scanner(System.in);
     CreatureSelection creatureSelection = new CreatureSelection();
 
-
-    public void startProgram(){
-        do{
+    public void startProgram() {
+        do {
             exit = true;
-            System.out.println("\n--------------------------------------");
-            System.out.println("|             ElementOOPS             |");
-            System.out.println("--------------------------------------\n");
-            System.out.print("[1] Iniciar novo jogo\n[999] Sair do jogo\n>>> ");
+
+            System.out.print("Iniciar um novo jogo [1] ou sair do programa [2]\n>> ");
             optionMenuInicial = scanner.nextInt();
 
-            if (optionMenuInicial == 999){
+            if (optionMenuInicial == 2) {
                 exit = confirmExit();
 
-            } else if (optionMenuInicial == 1){
-                exit = creatureSelection.selectCreature();
-            
-            } else {
-                System.out.println("\n[ERROR] Opção inválida. Tente novamente.");
+            } else if (optionMenuInicial == 1) {
+                int playerSelectedCreatureCode = creatureSelection.selectCreature();
 
+                if (playerSelectedCreatureCode != 1) {
+                    Creatures playerSelectedCreature = creatureSelection.getPlayerSelectedCreature();
+
+                    Battle battle = new Battle();
+                    battle.startBattle(playerSelectedCreature, creatureSelection);
+                } else {
+                    System.out.println("Opção inválida. Escolha novamente.");
+                }
+
+            } else {
+                System.out.println("Opção inválida");
             }
 
         } while (exit);

@@ -1,6 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class Battle {
     public void startBattle(int selectedCreatureCode) { // Adicione um parâmetro
         Scanner scanner = new Scanner(System.in);
@@ -12,8 +13,9 @@ public class Battle {
         System.out.println("--------------------------------------\n");
 
         // // Loop para as três batalhas
-        // for (int batalha = 1; batalha <= 3; batalha++) {
-        // System.out.println("Batalha " + batalha + "\n");
+        for (int batalha = 1; batalha <= 3; batalha++) {
+        System.out.println("Batalha " + batalha + "\n");
+        }
 
         // VELOCIDADE aleatória das criaturas
         int velocidadeCriatura1 = random.nextInt(10) + 1;

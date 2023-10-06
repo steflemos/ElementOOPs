@@ -15,8 +15,10 @@ public class Program extends Menu{
     public void startProgram(){
         do{
             exit = true;
-
-            System.out.print("Iniciar um novo jogo [1] ou sair do programa [999]\n>> ");
+            System.out.println("\n--------------------------------------");
+            System.out.println("|             ElementOOPS             |");
+            System.out.println("--------------------------------------\n");
+            System.out.print("[1] Iniciar novo jogo\n[999] Sair do jogo\n>>> ");
             optionMenuInicial = scanner.nextInt();
 
             if (optionMenuInicial == 999){
@@ -26,7 +28,7 @@ public class Program extends Menu{
                 exit = creatureSelection.selectCreature();
             
             } else {
-                System.out.println("opção inválida");
+                System.out.println("\n[ERROR] Opção inválida. Tente novamente.");
 
             }
 

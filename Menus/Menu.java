@@ -8,17 +8,17 @@ public class Menu {
 
     Scanner scanner = new Scanner(System.in);
 
-
     public boolean confirmExit(){
-        System.out.println("tem certeza? digite 1 para sair");
+        System.out.print("Você tem certeza que deseja sair?\nDigite 1 para confirmar \n>>> ");
         optionExit = scanner.nextInt();
 
-        if (optionExit == 1){
-            System.out.println("saindo...");
-            return false;
-        }
+        //caso a opção for 1 ele encerra o programa
+        boolean exit = !(optionExit == 1);
 
-        return true;
+        System.out.println(optionExit == 1 ? "Saindo..." : "[ERROR] Opção inválida. Tente novamente.");
+
+        return exit;
+
     }
 
 }

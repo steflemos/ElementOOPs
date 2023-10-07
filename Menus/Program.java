@@ -6,24 +6,24 @@ import Creatures.Creatures;
 import Tournament.Battle;
 
 public class Program extends Menu {
-    int optionMenuInicial;
-    int optionExit;
-    boolean exit;
+    private int optionInitialMenu;
+    private boolean exit = true;
+
 
     Scanner scanner = new Scanner(System.in);
+
     CreatureSelection creatureSelection = new CreatureSelection();
+
 
     public void startProgram() {
         do {
-            exit = true;
-
             System.out.print("Iniciar um novo jogo [1] ou sair do programa [2]\n>> ");
-            optionMenuInicial = scanner.nextInt();
+            optionInitialMenu = scanner.nextInt();
 
-            if (optionMenuInicial == 2) {
+            if (optionInitialMenu == 2) {
                 exit = confirmExit();
 
-            } else if (optionMenuInicial == 1) {
+            } else if (optionInitialMenu == 1) {
                 int playerSelectedCreatureCode = creatureSelection.selectCreature();
 
                 if (playerSelectedCreatureCode != 1) {
@@ -32,11 +32,11 @@ public class Program extends Menu {
                     Battle battle = new Battle();
                     battle.startBattle(playerSelectedCreature, creatureSelection);
                 } else {
-                    System.out.println("Opção inválida. Escolha novamente.");
+                    System.out.println(ANSI_RED + "\n[ERROR] Opção inválida. Escolha novamente.\n" + ANSI_RESET);
                 }
 
             } else {
-                System.out.println("Opção inválida");
+                System.out.println(ANSI_RED + "\n[ERROR] Opção inválida. Escolha novamente.\n" + ANSI_RESET);
             }
 
         } while (exit);

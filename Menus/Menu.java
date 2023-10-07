@@ -5,11 +5,16 @@ import java.util.Scanner;
 
 public class Menu {
     private int optionExit;
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+
 
     Scanner scanner = new Scanner(System.in);
 
+    
     public boolean confirmExit(){
-        System.out.print("Você tem certeza que deseja sair?\nDigite 1 para confirmar \n>>> ");
+        System.out.print(ANSI_RED + "\nVocê tem certeza que deseja sair?" + ANSI_RESET + "\n\nDigite 1 para confirmar \n>> ");
         optionExit = scanner.nextInt();
 
         //caso a opção for 1 ele encerra o programa
@@ -20,5 +25,4 @@ public class Menu {
         return exit;
 
     }
-
 }

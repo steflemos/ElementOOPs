@@ -5,37 +5,36 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import Creatures.BreezeHacker;
-import Creatures.BurnCoder;
-import Creatures.Creatures;
-import Creatures.StoneDev;
-import Creatures.WaveNerd;
+import Creatures.*;
 
 public class CreatureSelection extends Menu {
-    int optionCreature;
-    boolean exit;
-    int selectedCreatureCode;
-    int computerCreature;
+    private int optionCreature;
+    private int selectedCreatureCode;
+    private boolean exit;
+
+
+    Scanner scanner = new Scanner(System.in);
+
 
     public Creatures getPlayerSelectedCreature() {
         return playerSelectedCreature;
     }
 
     public int selectCreature() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println(
-                "\nCriaturas disponíveis: \n\nStoneDev (terra) - [14]\nWaveNerd (água) - [87]\nBurnCoder (fogo) - [65]\nBreezeHacker (ar) - [19]\n\n[999] Sair do programa \n");
-
-        optionCreature = scanner.nextInt();
-
         do {
+            System.out.print(
+                "\nCriaturas disponíveis: \n" +
+                "\nStoneDev (terra) - [14]\nWaveNerd (água) - [87]\nBurnCoder (fogo) - [65]\nBreezeHacker (ar) - [19]\n" +
+                ANSI_BLUE + "\nSair do programa - [2]\n" + ANSI_RESET + ">> " 
+            );
+            optionCreature = scanner.nextInt();
+
             switch (optionCreature) {
                 case 14:
                     playerSelectedCreature = new StoneDev();
                     System.out.print("Criatura selecionada:\n" + playerSelectedCreature);
                     selectedCreatureCode = 14;
-                    System.out.println("Aqui começa a batalha");
+
                     exit = false;
                     break;
 
@@ -43,7 +42,7 @@ public class CreatureSelection extends Menu {
                     playerSelectedCreature = new WaveNerd();
                     System.out.print("Criatura selecionada:\n" + playerSelectedCreature);
                     selectedCreatureCode = 87;
-                    System.out.println("Aqui começa a batalha");
+
                     exit = false;
                     break;
 
@@ -51,29 +50,32 @@ public class CreatureSelection extends Menu {
                     playerSelectedCreature = new BurnCoder();
                     System.out.print("Criatura selecionada:\n" + playerSelectedCreature);
                     selectedCreatureCode = 65;
-                    System.out.println("Aqui começa a batalha");
+
                     exit = false;
                     break;
+
                 case 19:
                     playerSelectedCreature = new BreezeHacker();
                     System.out.print("Criatura selecionada:\n" + playerSelectedCreature);
                     selectedCreatureCode = 19;
-                    System.out.println("Aqui começa a batalha");
+
                     exit = false;
                     break;
 
-                case 999:
+                case 2:
                     exit = confirmExit();
                     break;
 
                 default:
-                    System.out.println("Código inválido. Tente novamente.");
+                    System.out.println("\nCódigo inválido. Tente novamente.");
                     break;
+
             }
         } while (exit);
 
         return selectedCreatureCode;
     }
+
 
     private List<Creatures> availableCreatures;
     private Creatures playerSelectedCreature;
@@ -110,4 +112,5 @@ public class CreatureSelection extends Menu {
     public void resetComputerAvailableCreatures() {
         computerAvailableCreatures = new ArrayList<>(availableCreatures);
     }
+
 }

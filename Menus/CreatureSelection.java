@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import Creatures.*;
-import ElementsASCII.Earth;
+import ElementsASCII.*;// Importa todas as classes da pasta ElemensASCII.
 
 public class CreatureSelection extends Menu {
     private int optionCreature;
@@ -35,9 +35,10 @@ public class CreatureSelection extends Menu {
                     playerSelectedCreature = new StoneDev();
                     System.out.print("Criatura selecionada:\n" + playerSelectedCreature);
                     selectedCreatureCode = 14;
-                    
-                    // Chamando o método de ascci arte da classe Earth
-                    Earth.EarthMethod();
+
+                     // Criando uma instância do elemento Terra e chamando elementMethod
+                    Element earthElement = new Earth();
+                    earthElement.elementMethod();
                     exit = false;
                     break;
 
@@ -46,6 +47,9 @@ public class CreatureSelection extends Menu {
                     System.out.print("Criatura selecionada:\n" + playerSelectedCreature);
                     selectedCreatureCode = 87;
 
+                      // Criando uma instância do elemento Água e chamando elementMethod
+                    Element waterElement = new Water();
+                    waterElement.elementMethod();
                     exit = false;
                     break;
 
@@ -54,6 +58,9 @@ public class CreatureSelection extends Menu {
                     System.out.print("Criatura selecionada:\n" + playerSelectedCreature);
                     selectedCreatureCode = 65;
 
+                    // Criando uma instância do elemento Fogo e chamando elementMethod
+                    Element fireElement = new Fire();
+                    fireElement.elementMethod();
                     exit = false;
                     break;
 
@@ -61,7 +68,9 @@ public class CreatureSelection extends Menu {
                     playerSelectedCreature = new BreezeHacker();
                     System.out.print("Criatura selecionada:\n" + playerSelectedCreature);
                     selectedCreatureCode = 19;
-
+                    // Criando uma instância do elemento Ar e chamando elementMethod
+                    Element airElement = new Air();
+                    airElement.elementMethod();
                     exit = false;
                     break;
 

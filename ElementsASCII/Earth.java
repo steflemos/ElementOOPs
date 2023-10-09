@@ -1,8 +1,9 @@
 package ElementsASCII;
 
-public class Earth {
-    public static void EarthMethod() {
-        System.out.println("testando...");
+public class Earth extends Element {
+    @Override
+    public void elementMethod() {
+        System.out.println("Elemento Terra...");
         System.out.println("                            ####@@                          ");
         System.out.println("                    ::##################                    ");
         System.out.println("                  ########################--                ");

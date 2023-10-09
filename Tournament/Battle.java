@@ -70,8 +70,16 @@ public class Battle {
                 }
 
                 playerAtacaPrimeiro = !playerAtacaPrimeiro;
+
+                //logica de saida
+                //System.out.println("Você ganhou a batalha! Digite 1 para continuar a batalha ou digite 2 para Sair do programa.");
             }
-        }
+
+            // //logica de saida
+            System.out.println("Você ganhou a batalha! Digite 1 para continuar a batalha ou digite 2 para Sair do programa.");
+
+
+        }       
 
         scanner.close();
     }

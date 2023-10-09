@@ -34,17 +34,20 @@ public class Battle {
 
             while (true) {
                 // Menu de opções
-                System.out.println("Escolha uma ação:");
-                System.out.println("1. Ataque Físico");
-                System.out.println("2. Ataque Elemental");
-                System.out.println("3. Sair do programa");
-
+                System.out.println("--------------------------------------");
+                System.out.println("|          Escolha uma ação          |");
+                System.out.println("--------------------------------------");
+                System.out.println("|        1. Ataque Físico            |");
+                System.out.println("|        2. Ataque Elemental         |");
+                System.out.println("|        3. Sair do programa         |");
+                System.out.println("--------------------------------------");
+                
                 int escolha = scanner.nextInt();
 
                 if (escolha == 1) {
                     int dano = random.nextInt(10) + 1;
                     System.out.println(
-                            playerSelectedCreature.getName() + " ataca fisicamente e causa " + dano + " de dano.");
+                            playerSelectedCreature.getName() + " ataca fisicamente e causa " + dano + " de dano em " + computerSelectedCreature.getName() + "\n");
 
                     if (dano >= 10) {
                         System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n");
@@ -53,7 +56,7 @@ public class Battle {
                 } else if (escolha == 2) {
                     int dano = random.nextInt(15) + 1;
                     System.out.println(playerSelectedCreature.getName() + " ataca elementalmente com fogo e causa "
-                            + dano + " de dano.");
+                            + dano + " de dano em "+ computerSelectedCreature.getName() + "\n");
 
                     if (dano >= 15) {
                         System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n");

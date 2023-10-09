@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import Creatures.*;
+import ElementsASCII.Earth;
 
 public class CreatureSelection extends Menu {
     private int optionCreature;
@@ -34,7 +35,9 @@ public class CreatureSelection extends Menu {
                     playerSelectedCreature = new StoneDev();
                     System.out.print("Criatura selecionada:\n" + playerSelectedCreature);
                     selectedCreatureCode = 14;
-
+                    
+                    // Chamando o método de ascci arte da classe Earth
+                    Earth.EarthMethod();
                     exit = false;
                     break;
 

@@ -19,7 +19,7 @@ public class Battle {
         for (int batalha = 1; batalha <= 3; batalha++) {
             System.out.println("Batalha " + batalha + "\n");
 
-            int velocidadePlayer = random.nextInt(10) + 1;
+            int velocidadePlayer = playerSelectedCreature.getVelocity();
             int velocidadeComputer = random.nextInt(10) + 1;
 
             boolean playerAtacaPrimeiro = (velocidadePlayer > velocidadeComputer);
@@ -41,13 +41,14 @@ public class Battle {
                 System.out.println("|        2. Ataque Elemental         |");
                 System.out.println("|        3. Sair do programa         |");
                 System.out.println("--------------------------------------");
-                
+
                 int escolha = scanner.nextInt();
 
                 if (escolha == 1) {
                     int dano = random.nextInt(10) + 1;
                     System.out.println(
-                            playerSelectedCreature.getName() + " ataca fisicamente e causa " + dano + " de dano em " + computerSelectedCreature.getName() + "\n");
+                            playerSelectedCreature.getName() + " ataca fisicamente e causa " + dano + " de dano em "
+                                    + computerSelectedCreature.getName() + "\n");
 
                     if (dano >= 10) {
                         System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n");
@@ -56,7 +57,7 @@ public class Battle {
                 } else if (escolha == 2) {
                     int dano = random.nextInt(15) + 1;
                     System.out.println(playerSelectedCreature.getName() + " ataca elementalmente com fogo e causa "
-                            + dano + " de dano em "+ computerSelectedCreature.getName() + "\n");
+                            + dano + " de dano em " + computerSelectedCreature.getName() + "\n");
 
                     if (dano >= 15) {
                         System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n");
@@ -71,15 +72,16 @@ public class Battle {
 
                 playerAtacaPrimeiro = !playerAtacaPrimeiro;
 
-                //logica de saida
-                //System.out.println("Você ganhou a batalha! Digite 1 para continuar a batalha ou digite 2 para Sair do programa.");
+                // logica de saida
+                // System.out.println("Você ganhou a batalha! Digite 1 para continuar a batalha
+                // ou digite 2 para Sair do programa.");
             }
 
             // //logica de saida
-            System.out.println("Você ganhou a batalha! Digite 1 para continuar a batalha ou digite 2 para Sair do programa.");
+            System.out.println(
+                    "Você ganhou a batalha! Digite 1 para continuar a batalha ou digite 2 para Sair do programa.");
 
-
-        }       
+        }
 
         scanner.close();
     }

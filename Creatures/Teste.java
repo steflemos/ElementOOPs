@@ -1,8 +1,8 @@
 // public class Teste {
-//     public static void main(String[] args){
-//         Creatures teste = new Creatures();
+// public static void main(String[] args){
+// Creatures teste = new Creatures();
 
-//         System.out.print(teste.getPoder());
+// System.out.print(teste.getPoder());
 
-//     }
+// }
 // }

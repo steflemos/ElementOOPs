@@ -4,63 +4,66 @@ import java.util.Random;
 
 public abstract class Creatures {
 
-    Random aleatorio = new Random();
+    Random random = new Random();
 
-    private int poder = aleatorio.nextInt((30 - 10) + 1) + 10;
-    private int ataque = aleatorio.nextInt((15 - 5) + 1) + 5;
-    private int defesa = aleatorio.nextInt((15 - 5) + 1) + 5;
-    private int velocidade = aleatorio.nextInt((10 - 1) + 1) + 1;
-    private int pontosDeVida = aleatorio.nextInt((400 - 200) + 1) + 200;
+    private int power = random.nextInt((30 - 10) + 1) + 10;
+    private int attack = random.nextInt((15 - 5) + 1) + 5;
+    private int defense = random.nextInt((15 - 5) + 1) + 5;
+    private int velocity = random.nextInt((10 - 1) + 1) + 1;
+    private int lifepoints = random.nextInt((400 - 200) + 1) + 200;
 
     public Creatures() {
-        setPoder(poder);
-        setAtaque(ataque);
-        setDefesa(defesa);
-        setVelocidade(velocidade);
-        setPontosDeVida(pontosDeVida);
+        setPower(power);
+        setAttack(attack);
+        setDefense(defense);
+        setVelocity(velocity);
+        setLifePoints(lifepoints);
     }
 
-    public int getPoder() {
-        return this.poder;
+    public int getPower() {
+        return this.power;
     }
 
-    public void setPoder(int poder) {
-        this.poder = poder;
+    public void setPower(int power) {
+        this.power = power;
     }
 
-    public int getAtaque() {
-        return this.ataque;
+    public int getAttack() {
+        return this.attack;
     }
 
-    public void setAtaque(int ataque) {
-        this.ataque = ataque;
+    public void setAttack(int attack) {
+        this.attack = attack;
     }
 
-    public int getDefesa() {
-        return this.defesa;
+    public int getDefense() {
+        return this.defense;
     }
 
-    public void setDefesa(int defesa) {
-        this.defesa = defesa;
+    public void setDefense(int defense) {
+        this.defense = defense;
     }
 
-    public int getVelocidade() {
-        return this.velocidade;
+    public int getVelocity() {
+        return this.velocity;
     }
 
-    public void setVelocidade(int velocidade) {
-        this.velocidade = velocidade;
+    public void setVelocity(int velocity) {
+        this.velocity = velocity;
     }
 
-    public int getPontosDeVida() {
-        return this.pontosDeVida;
+    public int getLifePoints() {
+        return this.lifepoints;
     }
 
-    public void setPontosDeVida(int pontosDeVida) {
-        this.pontosDeVida = pontosDeVida;
+    public void setLifePoints(int lifepoints) {
+        this.lifepoints = lifepoints;
     }
 
     public abstract int getCode();
+
     public abstract String getName();
+
+    public abstract void elementMethod();
 
 } // fim da classe Creatures

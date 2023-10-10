@@ -9,7 +9,18 @@
       "name": "Main",
       "request": "launch",
       "mainClass": "Main",
+<<<<<<< HEAD
       "projectName": "ElementOOPs_766b37fe"
+=======
+      "projectName": "ElementOOPs_acd2ae9c"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "Main",
+      "projectName": "ElementOOPs_8eb80149"
+>>>>>>> 931037e3c230683001ad782d431d319bd076f9b3
     },
     {
       "type": "java",

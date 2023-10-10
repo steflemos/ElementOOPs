@@ -4,15 +4,18 @@ import java.util.Random;
 import java.util.Scanner;
 import Creatures.Creatures;
 import Menus.CreatureSelection;
+import Menus.Menu;
 
 public class Battle {
     public void startBattle(Creatures playerSelectedCreature, CreatureSelection creatureSelection) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
+        Menu confirmarSaida = new Menu();
+
         // Informar quem começa
         System.out.println("\n--------------------------------------");
-        System.out.println("|  A batalha está prestes a começar! |");
+        System.out.println("|  A batalha está prestes a começar!99999 |");
         System.out.println("--------------------------------------\n");
 
         // Loop para as três batalhas
@@ -72,15 +75,17 @@ public class Battle {
 
                 playerAtacaPrimeiro = !playerAtacaPrimeiro;
 
-                // logica de saida
-                // System.out.println("Você ganhou a batalha! Digite 1 para continuar a batalha
-                // ou digite 2 para Sair do programa.");
             }
 
             // //logica de saida
-            System.out.println(
-                    "Você ganhou a batalha! Digite 1 para continuar a batalha ou digite 2 para Sair do programa.");
+            System.out.println("Você ganhou a batalha! Digite 1 para continuar a batalha ou digite 2 para Sair do programa.");
+                
+                    int escolha = scanner.nextInt();
 
+                    if (escolha == 2) {
+                        confirmarSaida.confirmExit();
+                        break;
+                    }          
         }
 
         scanner.close();

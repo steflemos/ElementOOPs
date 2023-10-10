@@ -29,10 +29,20 @@ public class CreatureSelection extends Menu {
         computerAvailableCreatures = new ArrayList<>(availableCreatures);
         do {
             System.out.print(
-                    "\nCriaturas disponíveis: \n" +
-                            "\nStoneDev (terra) - [14]\nWaveNerd (água) - [87]\nBurnCoder (fogo) - [65]\nBreezeHacker (ar) - [19]\n"
+                            "\n--------------------------------------" +
+                            "\n|       Criaturas disponiveis        |" +
+                            "\n--------------------------------------" +
+                            "\n|       StoneDev (terra) - [14]      |"+
+                            "\n|       WaveNerd (água)  - [87]      |" +   
+                            "\n|       BurnCoder (fogo) - [65]      |"+
+                            "\n|      BreezeHacker (ar) - [19]      |"+
+                            "\n--------------------------------------"
                             +
-                            ANSI_BLUE + "\nSair do programa - [2]\n" + ANSI_RESET + ">> ");
+                            ANSI_BLUE + 
+                            "\n--------------------------------------"+
+                            "\n|        Sair do programa - [2]      |" +
+                            "\n--------------------------------------"
+                            + ANSI_RESET + "\n>> ");
             optionCreature = scanner.nextInt();
 
             switch (optionCreature) {

@@ -20,27 +20,30 @@ public class StoneDev extends Creatures {
     @Override
     public void elementMethod() {
         System.out.println("Elemento Terra...");
-        System.out.println("                            ####@@                          ");
-        System.out.println("                    ::##################                    ");
-        System.out.println("                  ########################--                ");
-        System.out.println("                ############    MM############              ");
-        System.out.println("              ############          ##########--            ");
-        System.out.println("            ############  --##  ##  ::##########            ");
-        System.out.println("            ##########      ##  ####  ############          ");
-        System.out.println("          ############  ##      ####    ##########          ");
-        System.out.println("          ############  ####    ##  MM  ##########          ");
-        System.out.println("          ############  ######    ##    ##########          ");
-        System.out.println("          ############  mm####  ####  ############::        ");
-        System.out.println("          ##############  ####  ##    ############..        ");
-        System.out.println("          ##############@@  ##      ##############          ");
-        System.out.println("          ##################      ################          ");
-        System.out.println("            ##################  ################            ");
-        System.out.println("            ######          ##  ##########--                ");
-        System.out.println("                    ######        ::--      ##MM            ");
-        System.out.println("                ################      ::######              ");
-        System.out.println("                  ##########################                ");
-        System.out.println("                    @@##################                    ");
-        System.out.println("                          ########                          ");
+        System.out.println("                    ##::::::##                    ");
+        System.out.println("                    ##mm++::::++                  ");
+        System.out.println("                      ::::##mm++  ##MM::::####    ");
+        System.out.println("                      @@++mmmmMM##::##::::::mmMM  ");
+        System.out.println("            ########            ::::++MM++mm++##  ");
+        System.out.println("        ##::::::mm::++      mm##::mmmmmm++++MM    ");
+        System.out.println("      ##::::++++mmmmMM##mm  ####mmmmmmmmmmMM##    ");
+        System.out.println("      ::++++MMmmmm@@mm##  --##  ##mmmmMMMM##      ");
+        System.out.println("    ::::mmmmmmmmmm##MM    ..MM      ::..          ");
+        System.out.println("      mmmmmmmmmmmmmm##  ....--##                  ");
+        System.out.println("        ##mmmmmmMM####....--------##              ");
+        System.out.println("                  ##    ####  ------++            ");
+        System.out.println("                ##              ------++          ");
+        System.out.println("                                --------##        ");
+        System.out.println("              ##                  ------++        ");
+        System.out.println("                MM..              ------MM        ");
+        System.out.println("                  ####        ####  ----mm##      ");
+        System.out.println("                  --          ----  ----mm##      ");
+        System.out.println("            --  ----      ..  ----  ----++##      ");
+        System.out.println("              ##::                ----++mm##      ");
+        System.out.println("                  @@----------------mmmm##        ");
+        System.out.println("                  --##------------mmmm##          ");
+        System.out.println("                    ##++mmmmmmmmmmmm              ");
+        System.out.println("                    ::##      mm::              ");
 
     } // Retorna o arte correspondente a criatura em ASCII
 

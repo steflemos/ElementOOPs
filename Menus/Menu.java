@@ -12,7 +12,11 @@ public class Menu {
 
     public boolean confirmExit() {
         System.out.print(
-                ANSI_RED + "\nVocê tem certeza que deseja sair?" + ANSI_RESET + "\n\nDigite 1 para confirmar \n>> ");
+                ANSI_RED + 
+                "--------------------------------------"+
+                "\n| Você tem certeza que deseja sair?  |" +
+                "\n--------------------------------------"
+                + ANSI_RESET + "\n\nDigite 1 para confirmar \n>> ");
         optionExit = scanner.nextInt();
 
         // caso a opção for 1 ele encerra o programa

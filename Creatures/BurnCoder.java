@@ -1,7 +1,6 @@
 package Creatures;
 
 public class BurnCoder extends Creatures {
-
     @Override
     public String toString() {
         return String.format(

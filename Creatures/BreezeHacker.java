@@ -1,7 +1,6 @@
 package Creatures;
 
 public class BreezeHacker extends Creatures {
-
     @Override
     public String toString() {
         return String.format(

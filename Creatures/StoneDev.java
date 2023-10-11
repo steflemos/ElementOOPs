@@ -1,7 +1,6 @@
 package Creatures;
 
 public class StoneDev extends Creatures {
-
     @Override
     public String toString() {
         return String.format(
@@ -9,10 +8,12 @@ public class StoneDev extends Creatures {
                 getPower(), getAttack(), getDefense(), getVelocity(), getLifePoints());
     }
 
+    @Override
     public int getCode() {
         return 14; // Retorne o código correspondente a criatura
     }
 
+    @Override
     public String getName() {
         return "StoneDev"; // Retorne o nome correspondente a criatura
     }

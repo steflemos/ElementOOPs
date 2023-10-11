@@ -4,36 +4,50 @@ import java.util.Random;
 import java.util.Scanner;
 import Creatures.Creatures;
 import Menus.CreatureSelection;
-import Menus.Menu;
 
 public class Battle {
     public void startBattle(Creatures playerSelectedCreature, CreatureSelection creatureSelection) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
-        Menu confirmarSaida = new Menu();
-
         // Informar quem começa
         System.out.println("\n--------------------------------------");
-        System.out.println("|  A batalha está prestes a começar!99999 |");
+        System.out.println("|  A batalha está prestes a começar! |");
         System.out.println("--------------------------------------\n");
 
         // Loop para as três batalhas
         for (int batalha = 1; batalha <= 3; batalha++) {
-            System.out.println("Batalha " + batalha + "\n");
-
-            int velocidadePlayer = playerSelectedCreature.getVelocity();
-            int velocidadeComputer = random.nextInt(10) + 1;
-
-            boolean playerAtacaPrimeiro = (velocidadePlayer > velocidadeComputer);
+            System.out.println(" == Batalha " + batalha + " ==\n");
 
             // Escolher aleatoriamente uma criatura disponível para o computador, garantindo
             // que seja diferente da escolhida pelo jogador
             Creatures computerSelectedCreature = creatureSelection
                     .selectRandomComputerCreature(playerSelectedCreature.getCode());
 
-            System.out.println(playerSelectedCreature.getName() + " começa!");
-            System.out.println(computerSelectedCreature.getName() + " responde!\n");
+            System.out.println(playerSelectedCreature.getName() + " VS " + computerSelectedCreature.getName());
+
+            boolean playerFirstAttack = (playerSelectedCreature.getVelocity() > computerSelectedCreature
+                    .getVelocity());
+
+            System.out.println("\nA criatura com a maior valocidade ataca primeiro!\n");
+            System.out
+                    .println(playerSelectedCreature.getName() + " Velocidade: " + playerSelectedCreature.getVelocity());
+            System.out.println(
+                    computerSelectedCreature.getName() + " Velocidade: " + computerSelectedCreature.getVelocity());
+
+            System.out.println("\n█░░░░░░░░░░░░░░░░░░░░░░░░\n");
+            System.out.println("████████░░░░░░░░░░░░░░░░░\n");
+            System.out.println("█████████████░░░░░░░░░░░░\n");
+            System.out.println("████████████████████░░░░░\n");
+            System.out.println("█████████████████████████\n");
+
+            System.out.println("\nImprimir quem ataca primeiro\n");
+
+            System.out.println("\n== Placar inicial ==\n" + "\n" +
+                    playerSelectedCreature.getName() + " \nPontos de vida: "
+                    + playerSelectedCreature.getLifePoints() +
+                    computerSelectedCreature.getName() + " \nPontos de vida: "
+                    + computerSelectedCreature.getLifePoints() + "\n");
 
             while (true) {
                 // Menu de opções
@@ -48,12 +62,19 @@ public class Battle {
                 int escolha = scanner.nextInt();
 
                 if (escolha == 1) {
-                    int dano = random.nextInt(10) + 1;
+                    int dano = playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
+                            / playerSelectedCreature.getDefense();
+                    int prejuizo = computerSelectedCreature.getLifePoints() - dano;
                     System.out.println(
-                            playerSelectedCreature.getName() + " ataca fisicamente e causa " + dano + " de dano em "
-                                    + computerSelectedCreature.getName() + "\n");
+                            playerSelectedCreature.getName() + " lança um ataque físico e diminui "
+                                    + prejuizo + " pontos de vida de " + computerSelectedCreature.getName() + "\n");
+                    System.out.println("\n == Placar == \n" +
+                            playerSelectedCreature.getName() + " \nPontos de vida: "
+                            + playerSelectedCreature.getLifePoints() + "\n" +
+                            computerSelectedCreature.getName() + " \nPontos de vida: "
+                            + computerSelectedCreature.getLifePoints() + "\n");
 
-                    if (dano >= 10) {
+                    if (computerSelectedCreature.getLifePoints() > playerSelectedCreature.getLifePoints()) {
                         System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n");
                         break;
                     }
@@ -73,19 +94,17 @@ public class Battle {
                     System.out.println("Opção inválida. Escolha novamente.");
                 }
 
-                playerAtacaPrimeiro = !playerAtacaPrimeiro;
+                playerFirstAttack = !playerFirstAttack;
 
+                // logica de saida
+                // System.out.println("Você ganhou a batalha! Digite 1 para continuar a batalha
+                // ou digite 2 para Sair do programa.");
             }
 
             // //logica de saida
-            System.out.println("Você ganhou a batalha! Digite 1 para continuar a batalha ou digite 2 para Sair do programa.");
-                
-                    int escolha = scanner.nextInt();
+            System.out.println(
+                    "Você ganhou a batalha! Digite 1 para continuar a batalha ou digite 2 para Sair do programa.");
 
-                    if (escolha == 2) {
-                        confirmarSaida.confirmExit();
-                        break;
-                    }          
         }
 
         scanner.close();

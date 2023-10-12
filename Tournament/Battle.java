@@ -79,11 +79,20 @@ public class Battle {
                         break;
                     }
                 } else if (escolha == 2) {
-                    int dano = random.nextInt(15) + 1;
+                    int dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack() / computerSelectedCreature.getDefense() * getFactor(playerSelectedCreature, computerSelectedCreature));
+                    //int dano = random.nextInt(15) + 1;
                     System.out.println(playerSelectedCreature.getName() + " ataca elementalmente com fogo e causa "
                             + dano + " de dano em " + computerSelectedCreature.getName() + "\n");
 
-                    if (dano >= 15) {
+                    computerSelectedCreature.setLifePoints(computerSelectedCreature.getLifePoints() - dano);
+
+                    System.out.println("\n == Placar == \n" +
+                            playerSelectedCreature.getName() + " \nPontos de vida: "
+                            + playerSelectedCreature.getLifePoints() + "\n" +
+                            computerSelectedCreature.getName() + " \nPontos de vida: "
+                            + computerSelectedCreature.getLifePoints() + "\n");
+
+                    if (playerSelectedCreature.getLifePoints() <= 0 ) {
                         System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n");
                         break;
                     }
@@ -108,5 +117,50 @@ public class Battle {
         }
 
         scanner.close();
+    }
+
+    private float getFactor(Creatures player, Creatures eneemy) {
+        if (player.getCode() == 14 && eneemy.getCode() == 87) {
+            return 2.0F;
+
+        } else if (player.getCode() == 14 && eneemy.getCode() == 65) {
+            return 1.0F;
+
+        } else if (player.getCode() == 14 && eneemy.getCode() == 19) {
+            return 1.0F;
+
+        }
+        if (player.getCode() == 87 && eneemy.getCode() == 14) {
+            return 1.0F;
+
+        } else if (player.getCode() == 87 && eneemy.getCode() == 65) {
+            return 2.0F;
+
+        } else if (player.getCode() == 87 && eneemy.getCode() == 19) {
+            return 1.0F;
+
+        }
+        if (player.getCode() == 65 && eneemy.getCode() == 14) {
+            return 1.0F;
+
+        } else if (player.getCode() == 65 && eneemy.getCode() == 87) {
+            return 1.0F;
+
+        } else if (player.getCode() == 65 && eneemy.getCode() == 19) {
+            return 2.0F;
+        }
+
+        if (player.getCode() == 19 && eneemy.getCode() == 14) {
+            return 2.0F;
+
+        } else if (player.getCode() == 19 && eneemy.getCode() == 87) {
+            return 1.0F;
+
+        } else if (player.getCode() == 19 && eneemy.getCode() == 65) {
+            return 1.0F;
+
+        }else{
+            return 0.0F;
+        }
     }
 }

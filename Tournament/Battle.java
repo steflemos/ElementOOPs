@@ -52,7 +52,7 @@ public class Battle {
 
             System.out.println("\n== Placar inicial ==\n" + "\n" +
                     playerSelectedCreature.getName() + " \nPontos de vida: "
-                    + playerSelectedCreature.getLifePoints() +
+                    + playerSelectedCreature.getLifePoints() + "\n" +
                     computerSelectedCreature.getName() + " \nPontos de vida: "
                     + computerSelectedCreature.getLifePoints() + "\n");
 
@@ -129,7 +129,8 @@ public class Battle {
     }
 
     private float getFactor(Creatures player, Creatures eneemy) {
-        //ta redundante isso aqui, melhorar dps 
+
+        //se o jogador escolher terra
         if (player.getCode() == 14 && eneemy.getCode() == 87) {
             return 2.0F;
 
@@ -140,6 +141,8 @@ public class Battle {
             return 1.0F;
 
         }
+
+        //se o jogador escolher agua
         if (player.getCode() == 87 && eneemy.getCode() == 14) {
             return 1.0F;
 
@@ -150,6 +153,8 @@ public class Battle {
             return 1.0F;
 
         }
+
+        //se o jogador escolher fogo
         if (player.getCode() == 65 && eneemy.getCode() == 14) {
             return 1.0F;
 
@@ -160,6 +165,7 @@ public class Battle {
             return 2.0F;
         }
 
+        //se o jogador escolher ar
         if (player.getCode() == 19 && eneemy.getCode() == 14) {
             return 2.0F;
 

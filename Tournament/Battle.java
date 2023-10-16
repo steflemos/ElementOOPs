@@ -1,20 +1,19 @@
 package Tournament;
 
-import java.util.Random;
 import java.util.Scanner;
 import Creatures.Creatures;
 import Menus.CreatureSelection;
 
 public class Battle {
     private Scanner scanner;
-    private Random random;
     private int dano;
     private int prejuizo;
     private int escolha;
+    private Creatures computerSelectedCreature;
+    private boolean playerFirstAttack;
 
     public Battle(){
         scanner = new Scanner(System.in);
-        random = new Random();
     }
 
     public void startBattle(Creatures playerSelectedCreature, CreatureSelection creatureSelection) {
@@ -29,12 +28,12 @@ public class Battle {
 
             // Escolher aleatoriamente uma criatura disponível para o computador, garantindo
             // que seja diferente da escolhida pelo jogador
-            Creatures computerSelectedCreature = creatureSelection
+            computerSelectedCreature = creatureSelection
                     .selectRandomComputerCreature(playerSelectedCreature.getCode());
 
             System.out.println(playerSelectedCreature.getName() + " VS " + computerSelectedCreature.getName());
 
-            boolean playerFirstAttack = (playerSelectedCreature.getVelocity() > computerSelectedCreature
+            playerFirstAttack = (playerSelectedCreature.getVelocity() > computerSelectedCreature
                     .getVelocity());
 
             System.out.println("\nA criatura com a maior valocidade ataca primeiro!\n");
@@ -49,7 +48,7 @@ public class Battle {
             System.out.println("████████████████████░░░░░\n");
             System.out.println("█████████████████████████\n");
 
-            System.out.println("\nImprimir quem ataca primeiro\n");
+            System.out.println(playerFirstAttack ? "Você ataca primeiro!" : "O computador ataca primeiro!");
 
             System.out.println("\n== Placar inicial ==\n" + "\n" +
                     playerSelectedCreature.getName() + " \nPontos de vida: "
@@ -70,6 +69,8 @@ public class Battle {
                 escolha = scanner.nextInt();
 
                 if (escolha == 1) {
+                    //o jogador deve causar danos ao openente
+                    //o oponente deve escolher as ações aleatóriamente
                     dano = playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
                             / playerSelectedCreature.getDefense();
                     prejuizo = computerSelectedCreature.getLifePoints() - dano;

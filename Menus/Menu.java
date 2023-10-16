@@ -9,19 +9,18 @@ public class Menu {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_BLUE = "\u001B[34m";
-    
 
-    public Menu(){
+    public Menu() {
         scanner = new Scanner(System.in);
     }
 
     public boolean confirmExit() {
         System.out.print(
-            ANSI_RED + 
-            "--------------------------------------"+
-            "\n| Você tem certeza que deseja sair?  |" +
-            "\n--------------------------------------"
-            + ANSI_RESET + "\n\nDigite 1 para confirmar \n>> ");
+                ANSI_RED +
+                        "--------------------------------------" +
+                        "\n| Você tem certeza que deseja sair?  |" +
+                        "\n--------------------------------------"
+                        + ANSI_RESET + "\n\nDigite 1 para confirmar \n>> ");
         optionExit = scanner.nextInt();
 
         // caso a opção for 1 ele encerra o programa

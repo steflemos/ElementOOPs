@@ -3,17 +3,39 @@ package Tournament;
 import java.util.Scanner;
 import Creatures.Creatures;
 import Menus.CreatureSelection;
+import Menus.Menu;
 
-public class Battle {
+public class Battle extends Menu {
     private Scanner scanner;
     private int dano;
-    private int prejuizo;
     private int escolha;
     private Creatures computerSelectedCreature;
     private boolean playerFirstAttack;
 
-    public Battle(){
+    public Battle() {
         scanner = new Scanner(System.in);
+    }
+
+    private void computerAttack(Creatures playerSelectedCreature, Creatures computerSelectedCreature) {
+        // Lógica para o ataque do computador
+        // Você pode implementar a lógica do ataque do computador aqui
+        // Por exemplo, escolher aleatoriamente entre ataque físico e ataque elemental
+        int escolhaComputador = (int) (Math.random() * 2) + 1;
+
+        if (escolhaComputador == 1) {
+            int dano = (int) (computerSelectedCreature.getPower() * computerSelectedCreature.getAttack()
+                    / playerSelectedCreature.getDefense());
+            System.out.println(computerSelectedCreature.getName() + " lança um ataque físico e diminui " + dano
+                    + " pontos de vida de " + playerSelectedCreature.getName() + "\n");
+            playerSelectedCreature.setLifePoints(playerSelectedCreature.getLifePoints() - dano);
+        } else {
+            int dano = (int) (computerSelectedCreature.getPower() * computerSelectedCreature.getAttack()
+                    / playerSelectedCreature.getDefense()
+                    * getFactor(computerSelectedCreature, playerSelectedCreature));
+            System.out.println(computerSelectedCreature.getName() + " ataca elementalmente e causa " + dano
+                    + " de dano em " + playerSelectedCreature.getName() + "\n");
+            playerSelectedCreature.setLifePoints(playerSelectedCreature.getLifePoints() - dano);
+        }
     }
 
     public void startBattle(Creatures playerSelectedCreature, CreatureSelection creatureSelection) {
@@ -38,9 +60,9 @@ public class Battle {
 
             System.out.println("\nA criatura com a maior valocidade ataca primeiro!\n");
             System.out
-                    .println(playerSelectedCreature.getName() + " Velocidade: " + playerSelectedCreature.getVelocity());
+                    .println(playerSelectedCreature.getName() + " velocidade: " + playerSelectedCreature.getVelocity());
             System.out.println(
-                    computerSelectedCreature.getName() + " Velocidade: " + computerSelectedCreature.getVelocity());
+                    computerSelectedCreature.getName() + " velocidade: " + computerSelectedCreature.getVelocity());
 
             System.out.println("\n█░░░░░░░░░░░░░░░░░░░░░░░░\n");
             System.out.println("████████░░░░░░░░░░░░░░░░░\n");
@@ -66,30 +88,51 @@ public class Battle {
                 System.out.println("|        3. Sair do programa         |");
                 System.out.print("--------------------------------------\n >>");
 
+                if (!playerFirstAttack) {
+                    System.out.println(computerSelectedCreature.getName() + " ataca!\n");
+                    computerAttack(playerSelectedCreature, computerSelectedCreature);
+                    System.out.println("\n == Placar == \n" +
+                            playerSelectedCreature.getName() + " \nPontos de vida: "
+                            + playerSelectedCreature.getLifePoints() + "\n" +
+                            computerSelectedCreature.getName() + " \nPontos de vida: "
+                            + computerSelectedCreature.getLifePoints() + "\n" +
+                            "\nSua vez! Escolha um ataque: ");
+
+                    if (playerSelectedCreature.getLifePoints() <= 0) {
+                        System.out.println(playerSelectedCreature.getName() + " foi derrotada!\n" +
+                                "Vencedor da batalha " + batalha + "\n Jogador: " + computerSelectedCreature.getName());
+                        break;
+                    }
+                }
+
                 escolha = scanner.nextInt();
+                System.out.println(playerSelectedCreature.getName() + " ataca!\n");
 
                 if (escolha == 1) {
-                    //o jogador deve causar danos ao openente
-                    //o oponente deve escolher as ações aleatóriamente
-                    dano = playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
-                            / playerSelectedCreature.getDefense();
-                    prejuizo = computerSelectedCreature.getLifePoints() - dano;
+                    // o jogador deve causar danos ao openente
+                    dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
+                            / playerSelectedCreature.getDefense());
                     System.out.println(
                             playerSelectedCreature.getName() + " lança um ataque físico e diminui "
-                                    + prejuizo + " pontos de vida de " + computerSelectedCreature.getName() + "\n");
+                                    + dano + " pontos de vida de " + computerSelectedCreature.getName() + "\n");
+
+                    computerSelectedCreature.setLifePoints(computerSelectedCreature.getLifePoints() - dano);
+
                     System.out.println("\n == Placar == \n" +
                             playerSelectedCreature.getName() + " \nPontos de vida: "
                             + playerSelectedCreature.getLifePoints() + "\n" +
                             computerSelectedCreature.getName() + " \nPontos de vida: "
                             + computerSelectedCreature.getLifePoints() + "\n");
 
-                    if (computerSelectedCreature.getLifePoints() > playerSelectedCreature.getLifePoints()) {
-                        System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n");
+                    if (computerSelectedCreature.getLifePoints() <= 0) {
+                        System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n" +
+                                "Vencedor da batalha " + batalha + "\n Jogador: " + playerSelectedCreature.getName());
                         break;
                     }
                 } else if (escolha == 2) {
-                    dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack() / computerSelectedCreature.getDefense() * getFactor(playerSelectedCreature, computerSelectedCreature));
-                    //int dano = random.nextInt(15) + 1;
+                    dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
+                            / computerSelectedCreature.getDefense()
+                            * getFactor(playerSelectedCreature, computerSelectedCreature));
                     System.out.println(playerSelectedCreature.getName() + " ataca elementalmente com fogo e causa "
                             + dano + " de dano em " + computerSelectedCreature.getName() + "\n");
 
@@ -101,12 +144,18 @@ public class Battle {
                             computerSelectedCreature.getName() + " \nPontos de vida: "
                             + computerSelectedCreature.getLifePoints() + "\n");
 
-                    if (playerSelectedCreature.getLifePoints() <= 0 ) {
-                        System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n");
+                    if (computerSelectedCreature.getLifePoints() <= 0) {
+                        System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n" +
+                                "Vencedor da batalha " + batalha + "\n Jogador: " + playerSelectedCreature.getName());
                         break;
                     }
                 } else if (escolha == 3) {
                     System.out.println("Batalha encerrada.");
+                    System.out.println("\n == Placar final == \n" +
+                            playerSelectedCreature.getName() + " \nPontos de vida: "
+                            + playerSelectedCreature.getLifePoints() + "\n" +
+                            computerSelectedCreature.getName() + " \nPontos de vida: "
+                            + computerSelectedCreature.getLifePoints() + "\n");
                     System.exit(0);
                 } else {
                     System.out.println("Opção inválida. Escolha novamente.");
@@ -114,14 +163,26 @@ public class Battle {
 
                 playerFirstAttack = !playerFirstAttack;
 
-                // logica de saida
-                // System.out.println("Você ganhou a batalha! Digite 1 para continuar a batalha
-                // ou digite 2 para Sair do programa.");
             }
 
-            // //logica de saida
-            System.out.println(
-                "Você ganhou a batalha! Digite 1 para continuar a batalha ou digite 2 para Sair do programa.");
+            if (batalha == 3) {
+                System.out.println("Parabéns! Você ganhou as três batalhas!");
+                return;
+            } else {
+                System.out.println(
+                        "Batalha " + batalha
+                                + " Encerrada! Deseja continuar para a proxima batalha? Digite 1 para continuar ou 2 para encerrar.");
+            }
+
+            escolha = scanner.nextInt();
+
+            if (escolha == 2) {
+                System.out.println("...Encerrando a batalha!");
+                System.out.println("Fim da batalha! Até a próxima ;) ");
+                return;
+            } else {
+
+            }
 
         }
 
@@ -129,8 +190,8 @@ public class Battle {
     }
 
     private float getFactor(Creatures player, Creatures eneemy) {
-
-        //se o jogador escolher terra
+        
+        // se o jogador escolher terra
         if (player.getCode() == 14 && eneemy.getCode() == 87) {
             return 2.0F;
 
@@ -142,7 +203,7 @@ public class Battle {
 
         }
 
-        //se o jogador escolher agua
+        // se o jogador escolher agua
         if (player.getCode() == 87 && eneemy.getCode() == 14) {
             return 1.0F;
 
@@ -154,7 +215,7 @@ public class Battle {
 
         }
 
-        //se o jogador escolher fogo
+        // se o jogador escolher fogo
         if (player.getCode() == 65 && eneemy.getCode() == 14) {
             return 1.0F;
 
@@ -165,7 +226,7 @@ public class Battle {
             return 2.0F;
         }
 
-        //se o jogador escolher ar
+        // se o jogador escolher ar
         if (player.getCode() == 19 && eneemy.getCode() == 14) {
             return 2.0F;
 
@@ -175,7 +236,7 @@ public class Battle {
         } else if (player.getCode() == 19 && eneemy.getCode() == 65) {
             return 1.0F;
 
-        }else{
+        } else {
             return 0.0F;
         }
     }

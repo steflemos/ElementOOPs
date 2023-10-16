@@ -15,8 +15,7 @@ public class Program extends Menu {
     private Creatures playerSelectedCreature;
     private Scanner scanner;
 
-
-    public Program(){
+    public Program() {
         scanner = new Scanner(System.in);
         creatureSelection = new CreatureSelection();
     }
@@ -34,12 +33,13 @@ public class Program extends Menu {
 
                 if (playerSelectedCreatureCode != 1) {
                     playerSelectedCreature = creatureSelection.getPlayerSelectedCreature();
-                    
+
                     battle = new Battle();
                     battle.startBattle(playerSelectedCreature, creatureSelection);
 
-                    // Agora que a batalha terminou, você pode verificar se o jogador quer continuar ou sair
-                    System.out.print("Digite 1 para continuar a jogar ou 2 para sair do programa\n>> ");
+                    // Agora que a batalha terminou, você pode verificar se o jogador quer continuar
+                    // ou sair
+                    System.out.print("Digite 1 para comecar uma nova batalha ou 2 para sair do programa.\n>> ");
                     continueOption = scanner.nextInt();
 
                     if (continueOption == 2) {

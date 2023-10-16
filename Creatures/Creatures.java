@@ -4,7 +4,7 @@ import java.util.Random;
 
 public abstract class Creatures {
 
-    Random random = new Random();
+    private Random random = new Random();
 
     private int power = random.nextInt((30 - 10) + 1) + 10;
     private int attack = random.nextInt((15 - 5) + 1) + 5;

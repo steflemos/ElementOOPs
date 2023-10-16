@@ -13,8 +13,14 @@ public class CreatureSelection extends Menu {
     private Creatures playerSelectedCreature;
     private List<Creatures> availableCreatures;
     private List<Creatures> computerAvailableCreatures;
+    private Creatures computerSelectedCreature;
+    private int randomIndex;
+    private Scanner scanner;
+    private Random random;
 
-    Scanner scanner = new Scanner(System.in);
+    public CreatureSelection(){
+        scanner = new Scanner(System.in);
+    }
 
     // Metodo usado para criar a lista de criaturas que estarao disponiveis para o
     // computador e para armazenar na variavel playerSelectedCreature a criatura
@@ -29,20 +35,20 @@ public class CreatureSelection extends Menu {
         computerAvailableCreatures = new ArrayList<>(availableCreatures);
         do {
             System.out.print(
-                            "\n--------------------------------------" +
-                            "\n|       Criaturas disponiveis        |" +
-                            "\n--------------------------------------" +
-                            "\n|       StoneDev (terra) - [14]      |"+
-                            "\n|       WaveNerd (água)  - [87]      |" +   
-                            "\n|       BurnCoder (fogo) - [65]      |"+
-                            "\n|      BreezeHacker (ar) - [19]      |"+
-                            "\n--------------------------------------"
-                            +
-                            ANSI_BLUE + 
-                            "\n--------------------------------------"+
-                            "\n|        Sair do programa - [2]      |" +
-                            "\n--------------------------------------"
-                            + ANSI_RESET + "\n>> ");
+                "\n--------------------------------------" +
+                "\n|       Criaturas disponiveis        |" +
+                "\n--------------------------------------" +
+                "\n|       StoneDev (terra) - [14]      |"+
+                "\n|       WaveNerd (água)  - [87]      |" +   
+                "\n|       BurnCoder (fogo) - [65]      |"+
+                "\n|      BreezeHacker (ar) - [19]      |"+
+                "\n--------------------------------------"
+                +
+                ANSI_BLUE + 
+                "\n--------------------------------------"+
+                "\n|        Sair do programa - [2]      |" +
+                "\n--------------------------------------"
+                + ANSI_RESET + "\n>> ");
             optionCreature = scanner.nextInt();
 
             switch (optionCreature) {
@@ -91,11 +97,10 @@ public class CreatureSelection extends Menu {
     // Metodo usado para selecionar uma criatura para o computador garantindo nao
     // ser a mesma ja escolhida pelo usuario
     public Creatures selectRandomComputerCreature(int playerSelectedCreatureCode) {
-        Random random = new Random();
-        Creatures computerSelectedCreature;
+        random = new Random();
 
         do {
-            int randomIndex = random.nextInt(computerAvailableCreatures.size());
+            randomIndex = random.nextInt(computerAvailableCreatures.size());
             computerSelectedCreature = computerAvailableCreatures.get(randomIndex);
         } while (computerSelectedCreature.getCode() == playerSelectedCreatureCode);
 

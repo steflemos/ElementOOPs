@@ -6,10 +6,18 @@ import Creatures.Creatures;
 import Menus.CreatureSelection;
 
 public class Battle {
-    public void startBattle(Creatures playerSelectedCreature, CreatureSelection creatureSelection) {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
+    private Scanner scanner;
+    private Random random;
+    private int dano;
+    private int prejuizo;
+    private int escolha;
 
+    public Battle(){
+        scanner = new Scanner(System.in);
+        random = new Random();
+    }
+
+    public void startBattle(Creatures playerSelectedCreature, CreatureSelection creatureSelection) {
         // Informar quem começa
         System.out.println("\n--------------------------------------");
         System.out.println("|  A batalha está prestes a começar! |");
@@ -57,14 +65,14 @@ public class Battle {
                 System.out.println("|        1. Ataque Físico            |");
                 System.out.println("|        2. Ataque Elemental         |");
                 System.out.println("|        3. Sair do programa         |");
-                System.out.println("--------------------------------------");
+                System.out.print("--------------------------------------\n >>");
 
-                int escolha = scanner.nextInt();
+                escolha = scanner.nextInt();
 
                 if (escolha == 1) {
-                    int dano = playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
+                    dano = playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
                             / playerSelectedCreature.getDefense();
-                    int prejuizo = computerSelectedCreature.getLifePoints() - dano;
+                    prejuizo = computerSelectedCreature.getLifePoints() - dano;
                     System.out.println(
                             playerSelectedCreature.getName() + " lança um ataque físico e diminui "
                                     + prejuizo + " pontos de vida de " + computerSelectedCreature.getName() + "\n");
@@ -79,7 +87,7 @@ public class Battle {
                         break;
                     }
                 } else if (escolha == 2) {
-                    int dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack() / computerSelectedCreature.getDefense() * getFactor(playerSelectedCreature, computerSelectedCreature));
+                    dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack() / computerSelectedCreature.getDefense() * getFactor(playerSelectedCreature, computerSelectedCreature));
                     //int dano = random.nextInt(15) + 1;
                     System.out.println(playerSelectedCreature.getName() + " ataca elementalmente com fogo e causa "
                             + dano + " de dano em " + computerSelectedCreature.getName() + "\n");
@@ -112,7 +120,7 @@ public class Battle {
 
             // //logica de saida
             System.out.println(
-                    "Você ganhou a batalha! Digite 1 para continuar a batalha ou digite 2 para Sair do programa.");
+                "Você ganhou a batalha! Digite 1 para continuar a batalha ou digite 2 para Sair do programa.");
 
         }
 
@@ -120,6 +128,7 @@ public class Battle {
     }
 
     private float getFactor(Creatures player, Creatures eneemy) {
+        //ta redundante isso aqui, melhorar dps 
         if (player.getCode() == 14 && eneemy.getCode() == 87) {
             return 2.0F;
 

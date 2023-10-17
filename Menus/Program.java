@@ -7,6 +7,7 @@ import Tournament.Battle;
 
 public class Program extends Menu {
     private int optionInitialMenu;
+    private int optionInitialMenuB;
     private int continueOption;
     private int playerSelectedCreatureCode;
     private boolean exit = true;
@@ -18,6 +19,7 @@ public class Program extends Menu {
     public Program() {
         scanner = new Scanner(System.in);
         creatureSelection = new CreatureSelection();
+        battle = new Battle();
     }
 
     public void startProgram() {
@@ -27,14 +29,16 @@ public class Program extends Menu {
 
             if (optionInitialMenu == 2) {
                 exit = confirmExit();
-
             } else if (optionInitialMenu == 1) {
                 playerSelectedCreatureCode = creatureSelection.selectCreature();
 
-                if (playerSelectedCreatureCode != 1) {
-                    playerSelectedCreature = creatureSelection.getPlayerSelectedCreature();
+                System.out.print("\nIniciar um novo torneio [1] ou sair do programa [2]\n>> ");
+                optionInitialMenuB = scanner.nextInt();
 
-                    battle = new Battle();
+                if (optionInitialMenuB == 2) {
+                    exit = confirmExit();
+                } else if (optionInitialMenuB == 1) {
+                    playerSelectedCreature = creatureSelection.getPlayerSelectedCreature();
                     battle.startBattle(playerSelectedCreature, creatureSelection);
 
                     // Agora que a batalha terminou, você pode verificar se o jogador quer continuar
@@ -47,13 +51,12 @@ public class Program extends Menu {
                     }
                 } else {
                     System.out.println(ANSI_RED + "\n[ERROR] Opção inválida. Escolha novamente.\n" + ANSI_RESET);
-
                 }
             } else {
                 System.out.println(ANSI_RED + "\n[ERROR] Opção inválida. Escolha novamente.\n" + ANSI_RESET);
-
             }
-
         } while (exit);
     }
+
+    // O restante do seu código
 }

@@ -66,4 +66,6 @@ public abstract class Creatures {
 
     public abstract void elementMethod();
 
+    public abstract String elementAttackPhrase();
+
 } // fim da classe Creatures

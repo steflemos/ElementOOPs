@@ -23,4 +23,8 @@ public class WaveNerd extends Creatures {
         System.out.println("Elemento Água ASCCI ART"); // Retorna o arte correspondente a criatura em ASCII
     }
 
+    public String elementAttackPhrase() {
+        return "Ataque elemental! Prepare-se para ser submergido por uma força incontrolável da água, uma torrente de água pura e cristalina desce como uma cascata devastadora!"; // Retorne a frase do ataque elemental correspondente a criatura
+    }
+
 }

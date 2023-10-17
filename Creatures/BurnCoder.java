@@ -23,4 +23,8 @@ public class BurnCoder extends Creatures {
         System.out.println("Elemento Fogo ASCCI ART"); // Retorna o arte correspondente a criatura em ASCII
     }
 
+    public String elementAttackPhrase() {
+        return "Ataque elemental! Prepare-se para sentir as chamas ardentes, o calor das profundezas se manifesta como um incêndio descontrolado!"; // Retorne a frase do ataque elemental correspondente a criatura
+    }
+
 }

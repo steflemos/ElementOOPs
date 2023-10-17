@@ -65,11 +65,11 @@ public class Battle extends Menu {
             System.out.println(
                     computerSelectedCreature.getName() + " velocidade: " + computerSelectedCreature.getVelocity());
 
-            System.out.println("\n█░░░░░░░░░░░░░░░░░░░░░░░░\n");
-            System.out.println("████████░░░░░░░░░░░░░░░░░\n");
-            System.out.println("█████████████░░░░░░░░░░░░\n");
-            System.out.println("████████████████████░░░░░\n");
-            System.out.println("█████████████████████████\n");
+            // System.out.println("\n█░░░░░░░░░░░░░░░░░░░░░░░░\n");
+            // System.out.println("████████░░░░░░░░░░░░░░░░░\n");
+            // System.out.println("█████████████░░░░░░░░░░░░\n");
+            // System.out.println("████████████████████░░░░░\n");
+            // System.out.println("█████████████████████████\n");
 
             System.out.println(playerFirstAttack ? "Você ataca primeiro!" : "O computador ataca primeiro!");
 

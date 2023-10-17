@@ -99,7 +99,7 @@ public class Battle extends Menu {
                             + computerSelectedCreature.getLifePoints() + "\n" +
                             "\nSua vez! Escolha um ataque: ");
 
-                    if (playerSelectedCreature.getLifePoints() <= 0) {
+                    if (playerSelectedCreature.getLifePoints() <= 1) {
                         System.out.println(playerSelectedCreature.getName() + " foi derrotada!\n" +
                                 "\n Poxa :( Dessa vez o computador foi o vencedor da batalha " + batalha
                                 + "! \n Vencedor: "
@@ -127,7 +127,7 @@ public class Battle extends Menu {
                             computerSelectedCreature.getName() + " \nPontos de vida: "
                             + computerSelectedCreature.getLifePoints() + "\n");
 
-                    if (computerSelectedCreature.getLifePoints() <= 0) {
+                    if (computerSelectedCreature.getLifePoints() <= 1) {
                         System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n" +
                                 "\nParabés! Voce foi o vencedor da batalha " + batalha + "\n Vencedor: "
                                 + playerSelectedCreature.getName());
@@ -149,7 +149,7 @@ public class Battle extends Menu {
                             computerSelectedCreature.getName() + " \nPontos de vida: "
                             + computerSelectedCreature.getLifePoints() + "\n");
 
-                    if (computerSelectedCreature.getLifePoints() <= 0) {
+                    if (computerSelectedCreature.getLifePoints() <= 1) {
                         System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n" +
                                 "\nParabéns! Você foi o vencedor da batalha " + batalha + "\n Vencedor: "
                                 + playerSelectedCreature.getName());
@@ -171,7 +171,7 @@ public class Battle extends Menu {
 
             }
 
-            if (batalha == 3 && computerSelectedCreature.getLifePoints() <= 0) {
+            if (batalha == 3 && computerSelectedCreature.getLifePoints() <= 1) {
                 System.out.println("Parabéns! Você ganhou as três batalhas e é campeão do torneio ElementOOPs.");
                 return;
             } else {

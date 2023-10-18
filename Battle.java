@@ -1,9 +1,6 @@
-package Tournament;
+
 
 import java.util.Scanner;
-import Creatures.Creatures;
-import Menus.CreatureSelection;
-import Menus.Menu;
 
 public class Battle extends Menu {
     private Scanner scanner;

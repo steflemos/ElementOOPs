@@ -1,11 +1,11 @@
-package Menus;
+
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import Creatures.*;
+// import Creatures.*;
 
 public class CreatureSelection extends Menu {
     private int optionCreature;

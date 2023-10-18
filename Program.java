@@ -1,9 +1,6 @@
-package Menus;
+
 
 import java.util.Scanner;
-
-import Creatures.Creatures;
-import Tournament.Battle;
 
 public class Program extends Menu {
     private int optionInitialMenu;

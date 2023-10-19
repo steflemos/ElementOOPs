@@ -37,6 +37,7 @@ public class Program extends Menu {
                     playerSelectedCreature = creatureSelection.getPlayerSelectedCreature();
                     battle.startBattle(playerSelectedCreature, creatureSelection);
                     
+                    //funcao usada para encerrar o programa caso o usuario perca. (esta comentada para testes)
                     if (playerSelectedCreature.getLifePoints() <=1){
                         break;
                     }

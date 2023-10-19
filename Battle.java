@@ -15,11 +15,9 @@ public class Battle extends Menu {
         exit = true;
     }
 
-    //metodo usado para o computador atacar
+    //metodo usado para o computador atacar aleatoriamente entre ataque elemental ou ataque fisico
     private void computerAttack(Creatures playerSelectedCreature, Creatures computerSelectedCreature) {
         int escolhaComputador = (int) (Math.random() * 2) + 1;
-
-        //se o computador fizer um ataque físico
         if (escolhaComputador == 1) {
             int dano = (int) (computerSelectedCreature.getPower() * computerSelectedCreature.getAttack()
                     / playerSelectedCreature.getDefense());
@@ -27,7 +25,6 @@ public class Battle extends Menu {
                     + " pontos de vida de " + playerSelectedCreature.getName() + "\n");
             playerSelectedCreature.setLifePoints(playerSelectedCreature.getLifePoints() - dano);
         } else {
-        //se o computador fizer um ataque elemental
             int dano = (int) (computerSelectedCreature.getPower() * computerSelectedCreature.getAttack()
                     / playerSelectedCreature.getDefense()
                     * getFactor(computerSelectedCreature, playerSelectedCreature));
@@ -47,8 +44,7 @@ public class Battle extends Menu {
         for (int batalha = 1; batalha <= 3; batalha++) {
             System.out.println(" ===== Batalha " + batalha + " =====\n");
 
-            // Escolher aleatoriamente uma criatura disponível para o computador, garantindo
-            // que seja diferente da escolhida pelo jogador
+            //escolhe uma criatura para ser jogada pelo computador
             computerSelectedCreature = creatureSelection
                     .selectRandomComputerCreature(playerSelectedCreature.getCode());
 
@@ -65,7 +61,7 @@ public class Battle extends Menu {
             System.out.println(
                     computerSelectedCreature.getName() + " velocidade: " + computerSelectedCreature.getVelocity());
 
-            System.out.println(playerFirstAttack ? "Você ataca primeiro!" : "O computador ataca primeiro!");
+            System.out.println(playerFirstAttack ? playerSelectedCreature.getName() + " ataca primeiro!" : computerSelectedCreature.getName() + " ataca primeiro!");
 
             System.out.println("\n== Placar inicial ==\n" + "\n" +
                     playerSelectedCreature.getName() + " \nPontos de vida: "
@@ -73,8 +69,7 @@ public class Battle extends Menu {
                     computerSelectedCreature.getName() + " \nPontos de vida: "
                     + computerSelectedCreature.getLifePoints() + "\n");
 
-            while (exit) {
-                // Menu de opções
+                    // Menu de opções
                 System.out.println("--------------------------------------");
                 System.out.println("|          Escolha uma ação          |");
                 System.out.println("--------------------------------------");
@@ -83,6 +78,8 @@ public class Battle extends Menu {
                 System.out.println("|        3. Sair do programa         |");
                 System.out.print("--------------------------------------\n >>");
 
+            while (exit) {
+                //computador ataca
                 if (!playerFirstAttack) {
                     System.out.println(computerSelectedCreature.getName() + " ataca!\n");
                     computerAttack(playerSelectedCreature, computerSelectedCreature);
@@ -93,17 +90,17 @@ public class Battle extends Menu {
                             + computerSelectedCreature.getLifePoints() + "\n" +
                             "------------------------------------------------------------");
                 }
-
+                
                 if (playerSelectedCreature.getLifePoints() <= 1) {
                     System.out.println("GAME OVER! Você foi derrotado!");
                     break;
                 }
                 
+                //usuario ataca
                 if (playerFirstAttack){
-                    System.out.println(playerSelectedCreature.getName() + " ataca!\n");
+                    System.out.println(playerSelectedCreature.getName() + " ataca!\n >>");
                     escolha = scanner.nextInt();
                     if (escolha == 1) {
-                        // o jogador deve causar danos ao openente
                         dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
                                 / computerSelectedCreature.getDefense());
                         System.out.println(
@@ -116,7 +113,8 @@ public class Battle extends Menu {
                                 playerSelectedCreature.getName() + " \nPontos de vida: "
                                 + playerSelectedCreature.getLifePoints() + "\n" +
                                 computerSelectedCreature.getName() + " \nPontos de vida: "
-                                + computerSelectedCreature.getLifePoints() + "\n");
+                                + computerSelectedCreature.getLifePoints() + "\n" + 
+                                "------------------------------------------------------------");
     
                         if (computerSelectedCreature.getLifePoints() <= 1) {
                             System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n" +
@@ -139,7 +137,8 @@ public class Battle extends Menu {
                                 playerSelectedCreature.getName() + " \nPontos de vida: "
                                 + playerSelectedCreature.getLifePoints() + "\n" +
                                 computerSelectedCreature.getName() + " \nPontos de vida: "
-                                + computerSelectedCreature.getLifePoints() + "\n");
+                                + computerSelectedCreature.getLifePoints() + "\n" + 
+                                "------------------------------------------------------------");
     
                         if (computerSelectedCreature.getLifePoints() <= 1) {
                             System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n" +

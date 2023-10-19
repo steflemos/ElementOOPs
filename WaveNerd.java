@@ -19,7 +19,28 @@ public class WaveNerd extends Creatures {
 
     @Override
     public void elementMethod() {
-        System.out.println("Elemento Água ASCCI ART"); // Retorna o arte correspondente a criatura em ASCII
+        System.out.println("Elemento Água...\n"); // Retorna o arte correspondente a criatura em ASCII                             
+System.out.println("               ##             ");
+System.out.println("              ####            ");
+System.out.println("            ######--          ");
+System.out.println("           ########          ");
+System.out.println("          ############        ");
+System.out.println("        ##############++      ");
+System.out.println("        ################      ");
+System.out.println("      ####################    ");
+System.out.println("    ######################MM  ");
+System.out.println("    ########################  ");
+System.out.println("  ############################");
+System.out.println("  ############################");
+System.out.println("  ######################  ####");
+System.out.println("  ####################    ####");
+System.out.println("  ####################  ######");
+System.out.println("  ################      ######");
+System.out.println("    ##########      ########  ");
+System.out.println("      ####################    ");
+System.out.println("        ################      ");
+System.out.println("            ########          ");
+                              
     }
 
     public String elementAttackPhrase() {

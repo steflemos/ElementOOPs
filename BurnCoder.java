@@ -18,28 +18,26 @@ public class BurnCoder extends Creatures {
 
     @Override
     public void elementMethod() {
-        System.out.println("Elemento Fogo ASCCI ART"); // Retorna o arte correspondente a criatura em ASCII
-
-        // ######
-        // #### ##
-        // ##-- ##
-        // #### ##
-        // ## ## ##
-        // #### ## ##
-        // ## #### ######
-        // ## ####MM ##
-        // ## ##
-        // @@## ## ##mmMM
-        // ######## ###### ## ##
-        // ##..--## ###### ######
-        // ##@@ #### ## MM --MM##
-        // ## ## @@###### ##
-        // ## ## ## ##
-        // #### ## ## ####
-        // #### ## ## ####
-        // ######-- ..######
-        // MM################
-        // ::##++
+        System.out.println("Elemento Fogo...\n"); // Retorna o arte correspondente a criatura em ASCII
+                                
+System.out.println("             ##--                ");
+System.out.println("              ::##MM            ");
+System.out.println("              ##::::mm          ");
+System.out.println("              ##::::##          ");
+System.out.println("              ##::::::          ");
+System.out.println("              ##::::::          ");
+System.out.println("              ::::::::          ");
+System.out.println("            ##::::::mm          ");
+System.out.println("    ##    ##::::::::##      ##  ");
+System.out.println("    ++::::::::  ##::##      ::  ");
+System.out.println("  --::::::::::##  ::++    ##::##");
+System.out.println("  ##::::::::::MM  ::::++##::::##");
+System.out.println("  ##::::::::##    ::::::::::::##");
+System.out.println("    ::::####      ::####::::::  ");
+System.out.println("    ##::##        ######::::##  ");
+System.out.println("      ::##            ##::##    ");
+System.out.println("      @@##          ##::##      ");
+System.out.println("          ##      ######        ");
 
     }
 

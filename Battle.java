@@ -1,6 +1,7 @@
 
 import java.util.Scanner;
 
+
 public class Battle extends Menu {
     private Scanner scanner;
     private int userAction;
@@ -10,15 +11,10 @@ public class Battle extends Menu {
     private boolean exit = true;
     private BattleAttacks attacks;
 
-    public Battle() {
-    }
+    public Battle() {}
 
     public boolean startBattle(Creatures playerSelectedCreature, CreatureSelection creatureSelection) {
         scanner = new Scanner(System.in);
-
-        System.out.println("\n--------------------------------------");
-        System.out.println("|  A batalha está prestes a começar! |");
-        System.out.println("--------------------------------------\n");
 
         // Loop para as três batalhas
         for (int batalha = 1; batalha <= 3; batalha++) {
@@ -42,22 +38,17 @@ public class Battle extends Menu {
                     computerSelectedCreature.getName() + " velocidade: " + computerSelectedCreature.getVelocity());
 
             System.out.println(playerFirstAttack ? "\n" + playerSelectedCreature.getName() + " ataca primeiro!"
-                    : "\n" + computerSelectedCreature.getName() + " ataca primeiro!");
+            +"\n----------------------------------------------------------"
+                    : "\n" + computerSelectedCreature.getName() + " ataca primeiro!"+
+                    "\n----------------------------------------------------------");
 
-            System.out.println("\n== Placar inicial ==\n" + "\n" +
-                    playerSelectedCreature.getName() + " \nPontos de vida: "
-                    + playerSelectedCreature.getLifePoints() + "\n" +
-                    computerSelectedCreature.getName() + " \nPontos de vida: "
-                    + computerSelectedCreature.getLifePoints() + "\n");
+
+            //MOSTRA O PLACAR INICIAL - METODO displayInitialScore É CHAMADO
+            System.out.println("\n== Placar inicial ==\n");
+            BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);
 
             // Menu de opções
-            System.out.println("--------------------------------------");
-            System.out.println("|          Escolha uma ação:         |");
-            System.out.println("--------------------------------------");
-            System.out.println("|        1. Ataque Físico            |");
-            System.out.println("|        2. Ataque Elemental         |");
-            System.out.println("|        3. Sair do programa         |");
-            System.out.print("--------------------------------------\n");
+            BattleMenu.displayMenuOptions();
 
             // instanciando um objeto da classe Battle Attacks para comecar a batalha:
             attacks = new BattleAttacks();
@@ -67,12 +58,12 @@ public class Battle extends Menu {
                 if (!playerFirstAttack) {
                     System.out.println(computerSelectedCreature.getName() + " ataca!\n");
                     attacks.computerAttack(playerSelectedCreature, computerSelectedCreature);
-                    System.out.println("====== Placar ====== \n" +
-                            "\n" + playerSelectedCreature.getName() + " - Pontos de vida: "
-                            + playerSelectedCreature.getLifePoints() +
-                            "\n" + computerSelectedCreature.getName() + " - Pontos de vida: "
-                            + computerSelectedCreature.getLifePoints() + "\n" +
-                            "----------------------------------------------------------------------\n");
+
+                    //MOSTRA O PLACAR - METODO displayInitialScore É CHAMADO
+                    System.out.println("====== Placar ======\n");
+                    BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);   
+                    System.out.println("----------------------------------------------------------------------\n");
+                    
                 }
 
                 // condicional para verificar os pontos de vida do usuario apos o ataque do
@@ -89,12 +80,10 @@ public class Battle extends Menu {
                     if (userAction == 1) {
                         // metodo de ataque fisico:
                         attacks.playerAttackFisical(playerSelectedCreature, computerSelectedCreature);
-                        System.out.println("====== Placar ====== \n" +
-                                "\n" + playerSelectedCreature.getName() + " - Pontos de vida: "
-                                + playerSelectedCreature.getLifePoints() +
-                                "\n" + computerSelectedCreature.getName() + " - Pontos de vida: "
-                                + computerSelectedCreature.getLifePoints() + "\n" +
-                                "----------------------------------------------------------------------\n");
+                    //MOSTRA O PLACAR - METODO displayInitialScore É CHAMADO
+                    System.out.println("====== Placar ======\n");
+                    BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);    
+                    System.out.println("----------------------------------------------------------------------\n");
 
                         // condicional para verificar os pontos de vida do computador apos o ataque do
                         // usuario:
@@ -108,12 +97,10 @@ public class Battle extends Menu {
                     } else if (userAction == 2) {
                         // metodo de ataque elemental:
                         attacks.playerAttackElemental(playerSelectedCreature, computerSelectedCreature);
-                        System.out.println("====== Placar ====== \n" +
-                                "\n" + playerSelectedCreature.getName() + " - Pontos de vida: "
-                                + playerSelectedCreature.getLifePoints() +
-                                "\n" + computerSelectedCreature.getName() + " - Pontos de vida: "
-                                + computerSelectedCreature.getLifePoints() + "\n" +
-                                "----------------------------------------------------------------------\n");
+                    //MOSTRA O PLACAR - METODO displayInitialScore É CHAMADO
+                    System.out.println("====== Placar ======\n");
+                    BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);  
+                    System.out.println("----------------------------------------------------------------------\n");
 
                         // condicional para verificar os pontos de vida do computador apos o ataque do
                         // usuario:
@@ -126,11 +113,10 @@ public class Battle extends Menu {
 
                     } else if (userAction == 3) {
                         System.out.println("Batalha encerrada.");
-                        System.out.println("\n ====== Placar final ====== \n" +
-                                playerSelectedCreature.getName() + " \nPontos de vida: "
-                                + playerSelectedCreature.getLifePoints() + "\n" +
-                                computerSelectedCreature.getName() + " \nPontos de vida: "
-                                + computerSelectedCreature.getLifePoints() + "\n");
+                    //MOSTRA O PLACAR FINAL - METODO displayInitialScore É CHAMADO
+                    System.out.println("\n====== Placar final ======\n");
+                    BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);    
+                    System.out.println("----------------------------------------------------------------------\n");                       
                         System.exit(0);
                     } else {
                         System.out.println("Opção inválida. Escolha novamente.");

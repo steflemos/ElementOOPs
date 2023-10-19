@@ -19,27 +19,26 @@ public class StoneDev extends Creatures {
 
     @Override
     public void elementMethod() {
-        System.out.println("Elemento Terra...");
-
-        // ######
-        // ##########
-        // ##.. ## ####
-        // #### ## ####
-        // --## ## ##
-        // ##--#### ## ####::##
-        // ## ######## ##
-        // ##:: ## ##
-        // #### ## ####
-        // ######## ## #### ##
-        // ## ####--######MM ::##
-        // ##-- ###### ##
-        // ## ## ##
-        // #### ## ##
-        // ####++ ## ####
-        // ########@@
-        // ##
-        // ##
-
+        System.out.println("Elemento Terra... +");
+                              
+ System.out.println("        --####            ");
+ System.out.println("        ##########          ");
+ System.out.println("      ####  ##  MM##        ");
+ System.out.println("      ##    ##    ####      ");
+ System.out.println("    ##      ##      ##      ");
+ System.out.println("  ########  ##  ####@@##    ");
+ System.out.println("  ##    --########    ##    ");
+ System.out.println("  ##        ##        @@##  ");
+ System.out.println("  ##        ##        ####  ");
+ System.out.println("MM######    ##      ######  ");
+ System.out.println("MM##  ####@@##  ####    ##  ");
+ System.out.println("  ##      ######      ..##  ");
+ System.out.println("  ##        ##        ##    ");
+ System.out.println("    ##      ##      ####    ");
+ System.out.println("    ..##mm  ##    ####      ");
+ System.out.println("        ##########          ");
+ System.out.println("            ##              ");
+ System.out.println("            ##              ");
     } // Retorna o arte correspondente a criatura em ASCII
 
     @Override

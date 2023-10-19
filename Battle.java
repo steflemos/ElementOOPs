@@ -15,10 +15,8 @@ public class Battle extends Menu {
         exit = true;
     }
 
+    //metodo usado para o computador atacar
     private void computerAttack(Creatures playerSelectedCreature, Creatures computerSelectedCreature) {
-        // Lógica para o ataque do computador
-        // Você pode implementar a lógica do ataque do computador aqui
-        // Por exemplo, escolher aleatoriamente entre ataque físico e ataque elemental
         int escolhaComputador = (int) (Math.random() * 2) + 1;
 
         //se o computador fizer um ataque físico
@@ -93,88 +91,84 @@ public class Battle extends Menu {
                             + playerSelectedCreature.getLifePoints() + "\n" +
                             computerSelectedCreature.getName() + " \nPontos de vida: "
                             + computerSelectedCreature.getLifePoints() + "\n" +
-                            "\nSua vez! Escolha um ataque: ");
+                            "------------------------------------------------------------");
                 }
 
-                escolha = scanner.nextInt();
-                System.out.println(playerSelectedCreature.getName() + " ataca!\n");
-
-                if (escolha == 1) {
-                    // o jogador deve causar danos ao openente
-                    dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
-                            / computerSelectedCreature.getDefense());
-                    System.out.println(
-                            playerSelectedCreature.getName() + " lança um ataque físico e diminui "
-                                    + dano + " pontos de vida de " + computerSelectedCreature.getName() + "\n");
-
-                    computerSelectedCreature.setLifePoints(computerSelectedCreature.getLifePoints() - dano);
-
-                    System.out.println("\n == Placar == \n" +
-                            playerSelectedCreature.getName() + " \nPontos de vida: "
-                            + playerSelectedCreature.getLifePoints() + "\n" +
-                            computerSelectedCreature.getName() + " \nPontos de vida: "
-                            + computerSelectedCreature.getLifePoints() + "\n");
-
-                    if (computerSelectedCreature.getLifePoints() <= 1) {
-                        System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n" +
-                                "\nParabés! Voce foi o vencedor da batalha " + batalha + "\n Vencedor: "
-                                + playerSelectedCreature.getName());
-                        break;
-                    }
-
-                    if (playerSelectedCreature.getLifePoints() <= 1) {
-                        System.out.println("GAME OVER! Você foi derrotado!");
-                        exit = false;
-                    }
-                } else if (escolha == 2) {
-                    dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
-                            / computerSelectedCreature.getDefense()
-                            * getFactor(playerSelectedCreature, computerSelectedCreature));
-                    System.out.println("\n" + playerSelectedCreature.elementAttackPhrase() + "\n"
-                            + playerSelectedCreature.getName() + " ataca elementalmente com fogo e causa "
-                            + dano + " de dano em " + computerSelectedCreature.getName() + "\n");
-
-                    computerSelectedCreature.setLifePoints(computerSelectedCreature.getLifePoints() - dano);
-
-                    System.out.println("\n == Placar == \n" +
-                            playerSelectedCreature.getName() + " \nPontos de vida: "
-                            + playerSelectedCreature.getLifePoints() + "\n" +
-                            computerSelectedCreature.getName() + " \nPontos de vida: "
-                            + computerSelectedCreature.getLifePoints() + "\n");
-
-                    if (computerSelectedCreature.getLifePoints() <= 1) {
-                        System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n" +
-                                "\nParabéns! Você foi o vencedor da batalha " + batalha + "\n Vencedor: "
-                                + playerSelectedCreature.getName());
-                        break;
-                    }
-
-                    if (playerSelectedCreature.getLifePoints() <= 1) {
-                        System.out.println("GAME OVER! Você foi derrotado!");
-                        exit = false;
-                    }
-                } else if (escolha == 3) {
-                    System.out.println("Batalha encerrada.");
-                    System.out.println("\n == Placar final == \n" +
-                            playerSelectedCreature.getName() + " \nPontos de vida: "
-                            + playerSelectedCreature.getLifePoints() + "\n" +
-                            computerSelectedCreature.getName() + " \nPontos de vida: "
-                            + computerSelectedCreature.getLifePoints() + "\n");
-                    System.exit(0);
-                } else {
-                    System.out.println("Opção inválida. Escolha novamente.");
+                if (playerSelectedCreature.getLifePoints() <= 1) {
+                    System.out.println("GAME OVER! Você foi derrotado!");
+                    break;
                 }
-
+                
+                if (playerFirstAttack){
+                    System.out.println(playerSelectedCreature.getName() + " ataca!\n");
+                    escolha = scanner.nextInt();
+                    if (escolha == 1) {
+                        // o jogador deve causar danos ao openente
+                        dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
+                                / computerSelectedCreature.getDefense());
+                        System.out.println(
+                                playerSelectedCreature.getName() + " lança um ataque físico e diminui "
+                                        + dano + " pontos de vida de " + computerSelectedCreature.getName() + "\n");
+    
+                        computerSelectedCreature.setLifePoints(computerSelectedCreature.getLifePoints() - dano);
+    
+                        System.out.println("\n == Placar == \n" +
+                                playerSelectedCreature.getName() + " \nPontos de vida: "
+                                + playerSelectedCreature.getLifePoints() + "\n" +
+                                computerSelectedCreature.getName() + " \nPontos de vida: "
+                                + computerSelectedCreature.getLifePoints() + "\n");
+    
+                        if (computerSelectedCreature.getLifePoints() <= 1) {
+                            System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n" +
+                                    "\nParabés! Voce foi o vencedor da batalha " + batalha + "\n Vencedor: "
+                                    + playerSelectedCreature.getName());
+                            break;
+                        }
+    
+                    } else if (escolha == 2) {
+                        dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
+                                / computerSelectedCreature.getDefense()
+                                * getFactor(playerSelectedCreature, computerSelectedCreature));
+                        System.out.println("\n" + playerSelectedCreature.elementAttackPhrase() + "\n"
+                                + playerSelectedCreature.getName() + " ataca elementalmente com fogo e causa "
+                                + dano + " de dano em " + computerSelectedCreature.getName() + "\n");
+    
+                        computerSelectedCreature.setLifePoints(computerSelectedCreature.getLifePoints() - dano);
+    
+                        System.out.println("\n == Placar == \n" +
+                                playerSelectedCreature.getName() + " \nPontos de vida: "
+                                + playerSelectedCreature.getLifePoints() + "\n" +
+                                computerSelectedCreature.getName() + " \nPontos de vida: "
+                                + computerSelectedCreature.getLifePoints() + "\n");
+    
+                        if (computerSelectedCreature.getLifePoints() <= 1) {
+                            System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n" +
+                                    "\nParabéns! Você foi o vencedor da batalha " + batalha + "\n Vencedor: "
+                                    + playerSelectedCreature.getName());
+                            break;
+                        }
+    
+                    } else if (escolha == 3) {
+                        System.out.println("Batalha encerrada.");
+                        System.out.println("\n == Placar final == \n" +
+                                playerSelectedCreature.getName() + " \nPontos de vida: "
+                                + playerSelectedCreature.getLifePoints() + "\n" +
+                                computerSelectedCreature.getName() + " \nPontos de vida: "
+                                + computerSelectedCreature.getLifePoints() + "\n");
+                        System.exit(0);
+                    } else {
+                        System.out.println("Opção inválida. Escolha novamente.");
+                    }
+                }
                 playerFirstAttack = !playerFirstAttack;
-
             }
 
             if (batalha == 3 && computerSelectedCreature.getLifePoints() <= 1) {
                 System.out.println("Parabéns! Você ganhou as três batalhas e é campeão do torneio ElementOOPs.");
-                exit = false;
+                break;
             } else if (playerSelectedCreature.getLifePoints() <= 1) {
-                System.out.println("Usuário derrotado!");
-                exit = false;
+                System.out.println("Usuário derrotado! Batalha encerrada!");
+                break;
             } else {
                 System.out.println(
                     "Batalha " + batalha
@@ -186,13 +180,11 @@ public class Battle extends Menu {
             if (escolha == 2) {
                 System.out.println("...Encerrando a batalha!");
                 System.out.println("Fim da batalha! Até a próxima ;) ");
-                exit = false;
+                break;
             }
               
         }
 
-        scanner.close();
-        System.out.print(exit);
         return exit;                
     }
 

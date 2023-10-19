@@ -6,7 +6,6 @@ public class Program extends Menu {
     private int optionInitialMenu;
     private int optionInitialMenuB;
     private int continueOption;
-    private int playerSelectedCreatureCode;
     private boolean exit = true;
     private CreatureSelection creatureSelection;
     private Battle battle;
@@ -27,7 +26,7 @@ public class Program extends Menu {
             if (optionInitialMenu == 2) {
                 exit = confirmExit();
             } else if (optionInitialMenu == 1) {
-                playerSelectedCreatureCode = creatureSelection.selectCreature();
+                creatureSelection.selectCreature();
 
                 System.out.print("\nIniciar um novo torneio [1] ou sair do programa [2]\n>> ");
                 optionInitialMenuB = scanner.nextInt();
@@ -37,10 +36,14 @@ public class Program extends Menu {
                 } else if (optionInitialMenuB == 1) {
                     playerSelectedCreature = creatureSelection.getPlayerSelectedCreature();
                     battle.startBattle(playerSelectedCreature, creatureSelection);
+                    
+                    if (playerSelectedCreature.getLifePoints() <=1){
+                        break;
+                    }
 
                     // Agora que a batalha terminou, você pode verificar se o jogador quer continuar
                     // ou sair
-                    System.out.print("Digite 1 para comecar uma nova batalha ou 2 para sair do programa.\n>> ");
+                    System.out.print("Digite 1 para comecar uma nova batalha ou 2 para sair do programa.\n>> ");              
                     continueOption = scanner.nextInt();
 
                     if (continueOption == 2) {

@@ -1,11 +1,12 @@
 
-
 import java.util.Random;
 
 public abstract class Creatures {
 
     private Random random = new Random();
 
+    // lógica usada para sortear um número inteiro de acordo com as especificações
+    // do enunciado da atividade:
     private int power = random.nextInt((30 - 10) + 1) + 10;
     private int attack = random.nextInt((15 - 5) + 1) + 5;
     private int defense = random.nextInt((15 - 5) + 1) + 5;
@@ -60,6 +61,7 @@ public abstract class Creatures {
         this.lifepoints = lifepoints;
     }
 
+    // metodos abstratos usados nas subclasses:
     public abstract int getCode();
 
     public abstract String getName();

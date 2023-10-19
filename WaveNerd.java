@@ -1,5 +1,4 @@
 
-
 public class WaveNerd extends Creatures {
     @Override
     public String toString() {
@@ -24,7 +23,15 @@ public class WaveNerd extends Creatures {
     }
 
     public String elementAttackPhrase() {
-        return "Ataque elemental! Prepare-se para ser submergido por uma força incontrolável da água, uma torrente de água pura e cristalina desce como uma cascata devastadora!"; // Retorne a frase do ataque elemental correspondente a criatura
+        return "Ataque elemental! Prepare-se para ser submergido por uma força incontrolável da água, uma corrente de água pura e cristalina desce como uma cascata devastadora!"; // Retorne
+                                                                                                                                                                                   // a
+                                                                                                                                                                                   // frase
+                                                                                                                                                                                   // do
+                                                                                                                                                                                   // ataque
+                                                                                                                                                                                   // elemental
+                                                                                                                                                                                   // correspondente
+                                                                                                                                                                                   // a
+                                                                                                                                                                                   // criatura
     }
 
 }

@@ -1,5 +1,4 @@
 
-
 import java.util.Scanner;
 
 public class Program extends Menu {
@@ -36,15 +35,14 @@ public class Program extends Menu {
                 } else if (optionInitialMenuB == 1) {
                     playerSelectedCreature = creatureSelection.getPlayerSelectedCreature();
                     battle.startBattle(playerSelectedCreature, creatureSelection);
-                    
-                    //funcao usada para encerrar o programa caso o usuario perca. (esta comentada para testes)
-                    if (playerSelectedCreature.getLifePoints() <=1){
+
+                    // funcao usada para encerrar o programa caso o usuario perca.
+                    if (playerSelectedCreature.getLifePoints() <= 1) {
                         break;
                     }
 
-                    // Agora que a batalha terminou, você pode verificar se o jogador quer continuar
-                    // ou sair
-                    System.out.print("Digite 1 para comecar uma nova batalha ou 2 para sair do programa.\n>> ");              
+                    // verifica se o jogador quer continuar ou sair:
+                    System.out.print("Digite 1 para comecar uma nova batalha ou 2 para sair do programa.\n>> ");
                     continueOption = scanner.nextInt();
 
                     if (continueOption == 2) {
@@ -57,7 +55,5 @@ public class Program extends Menu {
                 System.out.println(ANSI_RED + "\n[ERROR] Opção inválida. Escolha novamente.\n" + ANSI_RESET);
             }
         } while (exit);
-    }
-
-    // O restante do seu código
-}
+    } // fim do metodo startProgram
+} // fim da classe programa

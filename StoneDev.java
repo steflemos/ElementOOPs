@@ -1,5 +1,4 @@
 
-
 public class StoneDev extends Creatures {
     @Override
     public String toString() {
@@ -21,32 +20,39 @@ public class StoneDev extends Creatures {
     @Override
     public void elementMethod() {
         System.out.println("Elemento Terra...");
-                                     
-            //           ######                  
-            //         ##########                
-            //       ##..  ##  ####              
-            //     ####    ##    ####            
-            //   --##      ##      ##            
-            //   ##--####  ##  ####::##          
-            //   ##    ########      ##          
-            // ##::        ##        ##          
-            // ####        ##        ####        
-            // ########    ##    ####  ##        
-            // ##    ####--######MM  ::##        
-            // ##--      ######      ##          
-            //   ##        ##        ##          
-            //   ####      ##      ##            
-            //     ####++  ##  ####              
-            //         ########@@                
-            //             ##                    
-            //             ##                    
-                                      
+
+        // ######
+        // ##########
+        // ##.. ## ####
+        // #### ## ####
+        // --## ## ##
+        // ##--#### ## ####::##
+        // ## ######## ##
+        // ##:: ## ##
+        // #### ## ####
+        // ######## ## #### ##
+        // ## ####--######MM ::##
+        // ##-- ###### ##
+        // ## ## ##
+        // #### ## ##
+        // ####++ ## ####
+        // ########@@
+        // ##
+        // ##
 
     } // Retorna o arte correspondente a criatura em ASCII
 
     @Override
     public String elementAttackPhrase() {
-        return "Ataque elemental! Prepara-se para sentir a força da terra se manifestando das mais profundezas do solo"; // Retorne a frase do ataque elemental correspondente a criatura
+        return "Ataque elemental! Prepara-se para sentir a força da terra se manifestando das mais profundezas do solo!"; // Retorne
+                                                                                                                          // a
+                                                                                                                          // frase
+                                                                                                                          // do
+                                                                                                                          // ataque
+                                                                                                                          // elemental
+                                                                                                                          // correspondente
+                                                                                                                          // a
+                                                                                                                          // criatura
     }
 
 }

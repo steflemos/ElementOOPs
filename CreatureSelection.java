@@ -1,38 +1,36 @@
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-
-// import Creatures.*;
 
 public class CreatureSelection extends Menu {
     private int optionCreature;
     private boolean exit;
     private Creatures playerSelectedCreature;
     private List<Creatures> availableCreatures;
-    private List<Creatures> computerAvailableCreatures;
     private Creatures computerSelectedCreature;
     private int randomIndex;
     private Scanner scanner;
     private Random random;
 
+    // construtor
     public CreatureSelection() {
-        scanner = new Scanner(System.in);
     }
 
     // Metodo usado para criar a lista de criaturas que estarao disponiveis para o
     // computador e para armazenar na variavel playerSelectedCreature a criatura
     // escolhida pela usuario
     public int selectCreature() {
+
+        // Array que armazena as criaturas que serao sorteadas para ser a criatura
+        // player do computador:
         availableCreatures = new ArrayList<>();
         availableCreatures.add(new StoneDev());
         availableCreatures.add(new WaveNerd());
         availableCreatures.add(new BurnCoder());
         availableCreatures.add(new BreezeHacker());
 
-        computerAvailableCreatures = new ArrayList<>(availableCreatures);
         do {
             System.out.print(
                     "\n--------------------------------------" +
@@ -49,6 +47,8 @@ public class CreatureSelection extends Menu {
                             "\n|        Sair do programa - [2]      |" +
                             "\n--------------------------------------"
                             + ANSI_RESET + "\n>> ");
+
+            scanner = new Scanner(System.in);
             optionCreature = scanner.nextInt();
 
             switch (optionCreature) {
@@ -87,41 +87,24 @@ public class CreatureSelection extends Menu {
                 default:
                     System.out.println("\nCódigo inválido! Tente novamente.");
                     break;
-
             }
         } while (exit);
-
         return playerSelectedCreature.getCode();
     }
 
     // Metodo usado para selecionar uma criatura para o computador garantindo nao
     // ser a mesma ja escolhida pelo usuario
-    public Creatures selectRandomComputerCreature(int playerSelectedCreatureCode) {
+    public Creatures selectRandomCreature(int playerSelectedCreatureCode) {
         random = new Random();
-
         do {
-            randomIndex = random.nextInt(computerAvailableCreatures.size());
-            computerSelectedCreature = computerAvailableCreatures.get(randomIndex);
+            randomIndex = random.nextInt(availableCreatures.size());
+            computerSelectedCreature = availableCreatures.get(randomIndex);
         } while (computerSelectedCreature.getCode() == playerSelectedCreatureCode);
-
-        computerAvailableCreatures.remove(computerSelectedCreature);
-
+        availableCreatures.remove(computerSelectedCreature);
         return computerSelectedCreature;
     }
 
-    // Metodo usado para remover a criatura ja selecionada para ser a criatura do
-    // computador em uma rodada, garantindo o rodizio de criaturas por batalha
-    public void removeComputerSelectedCreature(Creatures computerSelectedCreature) {
-        computerAvailableCreatures.remove(computerSelectedCreature);
-    }
-
-    // Metodo usado para reiniciar a lista possibilitando reiniciar o jogo
-    public void resetComputerAvailableCreatures() {
-        computerAvailableCreatures = new ArrayList<>(availableCreatures);
-    }
-
-    // Metodo usado para passar o codigo da criatura selecionada para a variavel que
-    // comecara a batalha.
+    // Metodo usado para retornar a criatura selecionada pelo usuario:
     public Creatures getPlayerSelectedCreature() {
         return playerSelectedCreature;
     }

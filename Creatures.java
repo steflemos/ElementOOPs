@@ -7,18 +7,18 @@ public abstract class Creatures {
 
     // lógica usada para sortear um número inteiro de acordo com as especificações
     // do enunciado da atividade:
-    private int power = random.nextInt((30 - 10) + 1) + 10;
-    private int attack = random.nextInt((15 - 5) + 1) + 5;
-    private int defense = random.nextInt((15 - 5) + 1) + 5;
-    private int velocity = random.nextInt((10 - 1) + 1) + 1;
-    private int lifepoints = random.nextInt((400 - 200) + 1) + 200;
+    private int power;
+    private int attack;
+    private int defense;
+    private int velocity;
+    private int lifepoints;
 
     public Creatures() {
-        // setPower(power);
-        // setAttack(attack);
-        // setDefense(defense);
-        // setVelocity(velocity);
-        // setLifePoints(lifepoints);
+        power = random.nextInt((30 - 10) + 1) + 10;
+        attack = random.nextInt((15 - 5) + 1) + 5;
+        defense = random.nextInt((15 - 5) + 1) + 5;
+        velocity = random.nextInt((10 - 1) + 1) + 1;
+        lifepoints = random.nextInt((400 - 200) + 1) + 200;
     }
 
     public int getPower() {

@@ -17,7 +17,7 @@ public class BreezeHacker extends Creatures {
     }
 
     @Override
-    public void elementMethod() {
+    public void elementArtASCII() {
         System.out.println("Elemento Ar...\n"); // Retorna o arte correspondente a criatura em ASCII
 
  System.out.println("                        ##############                      ");

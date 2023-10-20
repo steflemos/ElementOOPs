@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class Menu {
+public class ConfirmExit {
     private int optionExit;
     private boolean exit;
     private Scanner scanner;
@@ -9,7 +9,7 @@ public class Menu {
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_BLUE = "\u001B[34m";
 
-    public Menu() {
+    public ConfirmExit() {
         scanner = new Scanner(System.in);
     }
 

@@ -14,11 +14,11 @@ public abstract class Creatures {
     private int lifepoints = random.nextInt((400 - 200) + 1) + 200;
 
     public Creatures() {
-        setPower(power);
-        setAttack(attack);
-        setDefense(defense);
-        setVelocity(velocity);
-        setLifePoints(lifepoints);
+        // setPower(power);
+        // setAttack(attack);
+        // setDefense(defense);
+        // setVelocity(velocity);
+        // setLifePoints(lifepoints);
     }
 
     public int getPower() {
@@ -66,7 +66,7 @@ public abstract class Creatures {
 
     public abstract String getName();
 
-    public abstract void elementMethod();
+    public abstract void elementArtASCII();
 
     public abstract String elementAttackPhrase();
 

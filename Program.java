@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class Program extends Menu {
+public class Program extends ConfirmExit {
     private int optionInitialMenu;
     private int optionInitialMenuB;
     private int continueOption;

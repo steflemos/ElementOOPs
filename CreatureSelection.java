@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class CreatureSelection extends Menu {
+public class CreatureSelection extends ConfirmExit {
     private int optionCreature;
     private boolean exit;
     private Creatures playerSelectedCreature;
@@ -54,29 +54,21 @@ public class CreatureSelection extends Menu {
             switch (optionCreature) {
                 case 14:
                     playerSelectedCreature = new StoneDev();
-                    playerSelectedCreature.elementMethod();
-                    System.out.print("\nCriatura selecionada:\n" + playerSelectedCreature);
                     exit = false;
                     break;
 
                 case 87:
                     playerSelectedCreature = new WaveNerd();
-                    playerSelectedCreature.elementMethod();
-                    System.out.print("\nCriatura selecionada:\n" + playerSelectedCreature);
                     exit = false;
                     break;
 
                 case 65:
                     playerSelectedCreature = new BurnCoder();
-                    playerSelectedCreature.elementMethod();
-                    System.out.print("\nCriatura selecionada:\n" + playerSelectedCreature);
                     exit = false;
                     break;
 
                 case 19:
                     playerSelectedCreature = new BreezeHacker();
-                    playerSelectedCreature.elementMethod();
-                    System.out.print("\nCriatura selecionada:\n" + playerSelectedCreature);
                     exit = false;
                     break;
 
@@ -89,6 +81,8 @@ public class CreatureSelection extends Menu {
                     break;
             }
         } while (exit);
+        playerSelectedCreature.elementArtASCII();
+        System.out.print("\nCriatura selecionada:\n" + playerSelectedCreature);
         return playerSelectedCreature.getCode();
     }
 

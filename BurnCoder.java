@@ -17,7 +17,7 @@ public class BurnCoder extends Creatures {
     }
 
     @Override
-    public void elementMethod() {
+    public void elementArtASCII() {
         System.out.println("Elemento Fogo...\n"); // Retorna o arte correspondente a criatura em ASCII
                                 
 System.out.println("             ##--                ");

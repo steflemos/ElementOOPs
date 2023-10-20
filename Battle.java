@@ -2,7 +2,7 @@
 import java.util.Scanner;
 
 
-public class Battle extends Menu {
+public class Battle extends ConfirmExit {
     private Scanner scanner;
     private int userAction;
     private int userActionExit;
@@ -87,12 +87,7 @@ public class Battle extends Menu {
 
                         // condicional para verificar os pontos de vida do computador apos o ataque do
                         // usuario:
-                        if (computerSelectedCreature.getLifePoints() <= 1) {
-                            System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n" +
-                                    "\nParabés! Voce foi o vencedor da batalha " + batalha + "\n Vencedor: "
-                                    + playerSelectedCreature.getName());
-                            break;
-                        }
+                  
 
                     } else if (userAction == 2) {
                         // metodo de ataque elemental:

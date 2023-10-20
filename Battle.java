@@ -11,6 +11,8 @@ public class Battle extends ConfirmExit {
     private boolean exit = true;
     private BattleAttacks attacks;
 
+    ConfirmExit exitConfirm = new ConfirmExit();
+
     public Battle() {}
 
     public boolean startBattle(Creatures playerSelectedCreature, CreatureSelection creatureSelection) {
@@ -124,7 +126,7 @@ public class Battle extends ConfirmExit {
             // condicional para exibir uma mensagem especial caso o usuario venca as tres
             // batalhas:
             if (batalha == 3 && computerSelectedCreature.getLifePoints() <= 1) {
-                System.out.println("Parabéns! Você ganhou as três batalhas e é campeão do torneio ElementOOPs.");
+                System.out.println("PARABÉNS! VOCÊ GANHOU AS TRÊS BATALHAS E É CAMPEÃO DO TORNEIO ELEMENTOOPS");
                 break;
                 // elif usado para exibir uma mensagem caso o usuario seja derrotado:
             } else if (playerSelectedCreature.getLifePoints() <= 1) {
@@ -141,6 +143,7 @@ public class Battle extends ConfirmExit {
             userActionExit = scanner.nextInt();
 
             if (userActionExit == 2) {
+                exitConfirm.confirmExit();
                 System.out.println("...Encerrando a batalha!");
                 System.out.println("Fim da batalha! Até a próxima ;) ");
                 break;

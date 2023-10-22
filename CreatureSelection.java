@@ -16,6 +16,7 @@ public class CreatureSelection extends ConfirmExit {
 
     // construtor
     public CreatureSelection() {
+        scanner = new Scanner(System.in);
     }
 
     // Metodo usado para criar a lista de criaturas que estarao disponiveis para o
@@ -48,7 +49,6 @@ public class CreatureSelection extends ConfirmExit {
                             "\n--------------------------------------"
                             + ANSI_RESET + "\n>> ");
 
-            scanner = new Scanner(System.in);
             optionCreature = scanner.nextInt();
 
             switch (optionCreature) {

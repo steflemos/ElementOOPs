@@ -1,7 +1,6 @@
 
 import java.util.Scanner;
 
-
 public class Battle extends ConfirmExit {
     private Scanner scanner;
     private int userAction;
@@ -10,13 +9,16 @@ public class Battle extends ConfirmExit {
     private boolean playerFirstAttack;
     private boolean exit = true;
     private BattleAttacks attacks;
+    private ConfirmExit exitConfirm;
 
-    ConfirmExit exitConfirm = new ConfirmExit();
-
-    public Battle() {}
+    public Battle() {
+        exitConfirm = new ConfirmExit();
+        exit = true;
+        attacks = new BattleAttacks();
+        scanner = new Scanner(System.in);
+    }
 
     public boolean startBattle(Creatures playerSelectedCreature, CreatureSelection creatureSelection) {
-        scanner = new Scanner(System.in);
 
         // Loop para as três batalhas
         for (int batalha = 1; batalha <= 3; batalha++) {
@@ -40,12 +42,11 @@ public class Battle extends ConfirmExit {
                     computerSelectedCreature.getName() + " velocidade: " + computerSelectedCreature.getVelocity());
 
             System.out.println(playerFirstAttack ? "\n" + playerSelectedCreature.getName() + " ataca primeiro!"
-            +"\n----------------------------------------------------------"
-                    : "\n" + computerSelectedCreature.getName() + " ataca primeiro!"+
-                    "\n----------------------------------------------------------");
+                    + "\n----------------------------------------------------------"
+                    : "\n" + computerSelectedCreature.getName() + " ataca primeiro!" +
+                            "\n----------------------------------------------------------");
 
-
-            //MOSTRA O PLACAR INICIAL - METODO displayInitialScore É CHAMADO
+            // MOSTRA O PLACAR INICIAL - METODO displayInitialScore É CHAMADO
             System.out.println("\n== Placar inicial ==\n");
             BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);
 
@@ -53,7 +54,6 @@ public class Battle extends ConfirmExit {
             BattleMenu.displayMenuOptions();
 
             // instanciando um objeto da classe Battle Attacks para comecar a batalha:
-            attacks = new BattleAttacks();
 
             while (exit) {
                 // computador ataca
@@ -61,11 +61,11 @@ public class Battle extends ConfirmExit {
                     System.out.println(computerSelectedCreature.getName() + " ataca!\n");
                     attacks.computerAttack(playerSelectedCreature, computerSelectedCreature);
 
-                    //MOSTRA O PLACAR - METODO displayInitialScore É CHAMADO
+                    // MOSTRA O PLACAR - METODO displayInitialScore É CHAMADO
                     System.out.println("====== Placar ======\n");
-                    BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);   
+                    BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);
                     System.out.println("----------------------------------------------------------------------\n");
-                    
+
                 }
 
                 // condicional para verificar os pontos de vida do usuario apos o ataque do
@@ -82,22 +82,21 @@ public class Battle extends ConfirmExit {
                     if (userAction == 1) {
                         // metodo de ataque fisico:
                         attacks.playerAttackFisical(playerSelectedCreature, computerSelectedCreature);
-                    //MOSTRA O PLACAR - METODO displayInitialScore É CHAMADO
-                    System.out.println("====== Placar ======\n");
-                    BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);    
-                    System.out.println("----------------------------------------------------------------------\n");
+                        // MOSTRA O PLACAR - METODO displayInitialScore É CHAMADO
+                        System.out.println("====== Placar ======\n");
+                        BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);
+                        System.out.println("----------------------------------------------------------------------\n");
 
                         // condicional para verificar os pontos de vida do computador apos o ataque do
                         // usuario:
-                  
 
                     } else if (userAction == 2) {
                         // metodo de ataque elemental:
                         attacks.playerAttackElemental(playerSelectedCreature, computerSelectedCreature);
-                    //MOSTRA O PLACAR - METODO displayInitialScore É CHAMADO
-                    System.out.println("====== Placar ======\n");
-                    BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);  
-                    System.out.println("----------------------------------------------------------------------\n");
+                        // MOSTRA O PLACAR - METODO displayInitialScore É CHAMADO
+                        System.out.println("====== Placar ======\n");
+                        BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);
+                        System.out.println("----------------------------------------------------------------------\n");
 
                         // condicional para verificar os pontos de vida do computador apos o ataque do
                         // usuario:
@@ -110,10 +109,10 @@ public class Battle extends ConfirmExit {
 
                     } else if (userAction == 3) {
                         System.out.println("Batalha encerrada.");
-                    //MOSTRA O PLACAR FINAL - METODO displayInitialScore É CHAMADO
-                    System.out.println("\n====== Placar final ======\n");
-                    BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);    
-                    System.out.println("----------------------------------------------------------------------\n");                       
+                        // MOSTRA O PLACAR FINAL - METODO displayInitialScore É CHAMADO
+                        System.out.println("\n====== Placar final ======\n");
+                        BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);
+                        System.out.println("----------------------------------------------------------------------\n");
                         System.exit(0);
                     } else {
                         System.out.println("Opção inválida. Escolha novamente.");
@@ -147,7 +146,7 @@ public class Battle extends ConfirmExit {
                 System.out.println("...Encerrando a batalha!");
                 System.out.println("Fim da batalha! Até a próxima ;) ");
                 break;
-            } 
+            }
         } // fim do laco das tres batalhas
 
         return exit; // retorno boleano do metodo startBattle usado para encerrar o metodo

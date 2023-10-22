@@ -1,11 +1,12 @@
 public class BattleAttacks {
+    private int dano;
 
     public BattleAttacks() {
     }
 
     // metodo de ataque fisico
     public void playerAttackFisical(Creatures playerSelectedCreature, Creatures computerSelectedCreature) {
-        int dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
+        dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
                 / computerSelectedCreature.getDefense());
         System.out.println(
                 playerSelectedCreature.getName() + " lança um ataque físico e diminui "
@@ -15,7 +16,7 @@ public class BattleAttacks {
 
     // metodo de ataque elemental
     public void playerAttackElemental(Creatures playerSelectedCreature, Creatures computerSelectedCreature) {
-        int dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
+        dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
                 / computerSelectedCreature.getDefense()
                 * getFactor(playerSelectedCreature, computerSelectedCreature));
         System.out.println("\n" + playerSelectedCreature.elementAttackPhrase() + "\n"
@@ -45,7 +46,7 @@ public class BattleAttacks {
         }
     }
 
-    // matriz de cruzamento 
+    // matriz de cruzamento
     private float getFactor(Creatures player, Creatures eneemy) {
 
         // se o jogador escolher terra

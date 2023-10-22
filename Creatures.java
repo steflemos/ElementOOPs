@@ -3,8 +3,6 @@ import java.util.Random;
 
 public abstract class Creatures {
 
-    private Random random = new Random();
-
     // lógica usada para sortear um número inteiro de acordo com as especificações
     // do enunciado da atividade:
     private int power;
@@ -12,8 +10,10 @@ public abstract class Creatures {
     private int defense;
     private int velocity;
     private int lifepoints;
+    private Random random;
 
     public Creatures() {
+        random = new Random();
         power = random.nextInt((30 - 10) + 1) + 10;
         attack = random.nextInt((15 - 5) + 1) + 5;
         defense = random.nextInt((15 - 5) + 1) + 5;

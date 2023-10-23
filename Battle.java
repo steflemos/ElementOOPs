@@ -114,7 +114,7 @@ public class Battle extends ConfirmExit {
                         }
 
                     } else if (userAction == 3) {
-                        System.out.println("Batalha encerrada.");
+                        System.out.println("\nBatalha encerrada.");
                         // MOSTRA O PLACAR FINAL - METODO displayInitialScore É CHAMADO
                         System.out.println("\n====== Placar final ======\n");
                         BattleMenu.displayScore(playerSelectedCreature, computerSelectedCreature);

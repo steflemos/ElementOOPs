@@ -37,7 +37,7 @@ public class Program extends ConfirmExit {
                     battle.startBattle(playerSelectedCreature, creatureSelection);
 
                     // funcao usada para encerrar o programa caso o usuario perca.
-                    if (playerSelectedCreature.getLifePoints() <= 1) {
+                    if (playerSelectedCreature.getLifePoints() < 1) {
                         break;
                     }
 

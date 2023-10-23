@@ -1,11 +1,8 @@
 public class BattleAttacks {
     private int dano;
 
-    public BattleAttacks() {
-    }
-
     // metodo de ataque fisico
-    public void playerAttackFisical(Creatures playerSelectedCreature, Creatures computerSelectedCreature) {
+    public void playerAttackFisical(Creature playerSelectedCreature, Creature computerSelectedCreature) {
         dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
                 / computerSelectedCreature.getDefense());
         System.out.println(
@@ -15,7 +12,7 @@ public class BattleAttacks {
     }
 
     // metodo de ataque elemental
-    public void playerAttackElemental(Creatures playerSelectedCreature, Creatures computerSelectedCreature) {
+    public void playerAttackElemental(Creature playerSelectedCreature, Creature computerSelectedCreature) {
         dano = (int) (playerSelectedCreature.getPower() * playerSelectedCreature.getAttack()
                 / computerSelectedCreature.getDefense()
                 * getFactor(playerSelectedCreature, computerSelectedCreature));
@@ -27,7 +24,7 @@ public class BattleAttacks {
 
     // metodo usado para o computador atacar aleatoriamente entre ataque elemental
     // ou ataque fisico
-    public void computerAttack(Creatures playerSelectedCreature, Creatures computerSelectedCreature) {
+    public void computerAttack(Creature playerSelectedCreature, Creature computerSelectedCreature) {
         int escolhaComputador = (int) (Math.random() * 2) + 1;
         if (escolhaComputador == 1) {
             int dano = (int) (computerSelectedCreature.getPower() * computerSelectedCreature.getAttack()
@@ -47,7 +44,7 @@ public class BattleAttacks {
     }
 
     // matriz de cruzamento
-    private float getFactor(Creatures player, Creatures eneemy) {
+    private float getFactor(Creature player, Creature eneemy) {
 
         // se o jogador escolher terra
         if (player.getCode() == 14 && eneemy.getCode() == 87) {

@@ -9,9 +9,10 @@ public class BattleMenu {
         System.out.print("--------------------------------------\n");
     }
 
-
-    public static void displayScore(Creatures playerSelectedCreature, Creatures computerSelectedCreature) {
-        System.out.println(playerSelectedCreature.getName() + " \nPontos de vida: " + playerSelectedCreature.getLifePoints() + "\n" +
-                           computerSelectedCreature.getName() + " \nPontos de vida: " + computerSelectedCreature.getLifePoints() + "\n");
+    public static void displayScore(Creature playerSelectedCreature, Creature computerSelectedCreature) {
+        System.out.println(playerSelectedCreature.getName() + " \nPontos de vida: "
+                + playerSelectedCreature.getLifePoints() + "\n" +
+                computerSelectedCreature.getName() + " \nPontos de vida: " + computerSelectedCreature.getLifePoints()
+                + "\n");
     }
 }

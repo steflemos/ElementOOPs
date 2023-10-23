@@ -7,9 +7,9 @@ import java.util.Scanner;
 public class CreatureSelection extends ConfirmExit {
     private int optionCreature;
     private boolean exit;
-    private Creatures playerSelectedCreature;
-    private List<Creatures> availableCreatures;
-    private Creatures computerSelectedCreature;
+    private Creature playerSelectedCreature;
+    private List<Creature> availableCreatures;
+    private Creature computerSelectedCreature;
     private int randomIndex;
     private Scanner scanner;
     private Random random;
@@ -88,7 +88,7 @@ public class CreatureSelection extends ConfirmExit {
 
     // Metodo usado para selecionar uma criatura para o computador garantindo nao
     // ser a mesma ja escolhida pelo usuario
-    public Creatures selectRandomCreature(int playerSelectedCreatureCode) {
+    public Creature selectRandomCreature(int playerSelectedCreatureCode) {
         random = new Random();
         do {
             randomIndex = random.nextInt(availableCreatures.size());
@@ -99,7 +99,7 @@ public class CreatureSelection extends ConfirmExit {
     }
 
     // Metodo usado para retornar a criatura selecionada pelo usuario:
-    public Creatures getPlayerSelectedCreature() {
+    public Creature getPlayerSelectedCreature() {
         return playerSelectedCreature;
     }
 

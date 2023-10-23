@@ -1,5 +1,5 @@
 
-public class WaveNerd extends Creatures {
+public class WaveNerd extends Creature {
     @Override
     public String toString() {
         return String.format(
@@ -19,30 +19,30 @@ public class WaveNerd extends Creatures {
 
     @Override
     public void elementArtASCII() {
-        System.out.println("Elemento Água...\n"); // Retorna o arte correspondente a criatura em ASCII                             
-System.out.println("               ##             ");
-System.out.println("              ####            ");
-System.out.println("            ######--          ");
-System.out.println("           ########          ");
-System.out.println("          ############        ");
-System.out.println("        ##############++      ");
-System.out.println("        ################      ");
-System.out.println("      ####################    ");
-System.out.println("    ######################MM  ");
-System.out.println("    ########################  ");
-System.out.println("  ############################");
-System.out.println("  ############################");
-System.out.println("  ######################  ####");
-System.out.println("  ####################    ####");
-System.out.println("  ####################  ######");
-System.out.println("  ################      ######");
-System.out.println("    ##########      ########  ");
-System.out.println("      ####################    ");
-System.out.println("        ################      ");
-System.out.println("            ########          ");
-                              
-    }
+        System.out.println("Elemento Água...\n"); // Retorna o arte correspondente a criatura em ASCII
+        System.out.println("               ##             ");
+        System.out.println("              ####            ");
+        System.out.println("            ######--          ");
+        System.out.println("           ########          ");
+        System.out.println("          ############        ");
+        System.out.println("        ##############++      ");
+        System.out.println("        ################      ");
+        System.out.println("      ####################    ");
+        System.out.println("    ######################MM  ");
+        System.out.println("    ########################  ");
+        System.out.println("  ############################");
+        System.out.println("  ############################");
+        System.out.println("  ######################  ####");
+        System.out.println("  ####################    ####");
+        System.out.println("  ####################  ######");
+        System.out.println("  ################      ######");
+        System.out.println("    ##########      ########  ");
+        System.out.println("      ####################    ");
+        System.out.println("        ################      ");
+        System.out.println("            ########          ");
+    } // Retorna a arte correspondente a criatura em ASCII
 
+    @Override
     public String elementAttackPhrase() {
         return "Ataque elemental! Prepare-se para ser submergido por uma força incontrolável da água, uma corrente de água pura e cristalina desce como uma cascata devastadora!"; // Retorne
                                                                                                                                                                                    // a

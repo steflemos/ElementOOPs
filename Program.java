@@ -8,7 +8,7 @@ public class Program extends ConfirmExit {
     private boolean exit = true;
     private CreatureSelection creatureSelection;
     private Battle battle;
-    private Creatures playerSelectedCreature;
+    private Creature playerSelectedCreature;
     private Scanner scanner;
 
     public Program() {

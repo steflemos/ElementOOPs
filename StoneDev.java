@@ -1,5 +1,5 @@
 
-public class StoneDev extends Creatures {
+public class StoneDev extends Creature {
     @Override
     public String toString() {
         return String.format(
@@ -20,26 +20,25 @@ public class StoneDev extends Creatures {
     @Override
     public void elementArtASCII() {
         System.out.println("Elemento Terra... +");
-                              
- System.out.println("        --####            ");
- System.out.println("        ##########          ");
- System.out.println("      ####  ##  MM##        ");
- System.out.println("      ##    ##    ####      ");
- System.out.println("    ##      ##      ##      ");
- System.out.println("  ########  ##  ####@@##    ");
- System.out.println("  ##    --########    ##    ");
- System.out.println("  ##        ##        @@##  ");
- System.out.println("  ##        ##        ####  ");
- System.out.println("MM######    ##      ######  ");
- System.out.println("MM##  ####@@##  ####    ##  ");
- System.out.println("  ##      ######      ..##  ");
- System.out.println("  ##        ##        ##    ");
- System.out.println("    ##      ##      ####    ");
- System.out.println("    ..##mm  ##    ####      ");
- System.out.println("        ##########          ");
- System.out.println("            ##              ");
- System.out.println("            ##              ");
-    } // Retorna o arte correspondente a criatura em ASCII
+        System.out.println("        --####            ");
+        System.out.println("        ##########          ");
+        System.out.println("      ####  ##  MM##        ");
+        System.out.println("      ##    ##    ####      ");
+        System.out.println("    ##      ##      ##      ");
+        System.out.println("  ########  ##  ####@@##    ");
+        System.out.println("  ##    --########    ##    ");
+        System.out.println("  ##        ##        @@##  ");
+        System.out.println("  ##        ##        ####  ");
+        System.out.println("MM######    ##      ######  ");
+        System.out.println("MM##  ####@@##  ####    ##  ");
+        System.out.println("  ##      ######      ..##  ");
+        System.out.println("  ##        ##        ##    ");
+        System.out.println("    ##      ##      ####    ");
+        System.out.println("    ..##mm  ##    ####      ");
+        System.out.println("        ##########          ");
+        System.out.println("            ##              ");
+        System.out.println("            ##              ");
+    } // Retorna a arte correspondente a criatura em ASCII
 
     @Override
     public String elementAttackPhrase() {

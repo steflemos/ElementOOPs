@@ -5,9 +5,9 @@ public class Battle extends ConfirmExit {
     private Scanner scanner;
     private int userAction;
     private int userActionExit;
-    private Creatures computerSelectedCreature;
+    private Creature computerSelectedCreature;
     private boolean playerFirstAttack;
-    private boolean exit = true;
+    private boolean exit;
     private BattleAttacks attacks;
     private ConfirmExit exitConfirm;
 
@@ -18,7 +18,7 @@ public class Battle extends ConfirmExit {
         scanner = new Scanner(System.in);
     }
 
-    public boolean startBattle(Creatures playerSelectedCreature, CreatureSelection creatureSelection) {
+    public boolean startBattle(Creature playerSelectedCreature, CreatureSelection creatureSelection) {
 
         // Loop para as três batalhas
         for (int batalha = 1; batalha <= 3; batalha++) {

@@ -1,4 +1,4 @@
-public class BreezeHacker extends Creatures {
+public class BreezeHacker extends Creature {
     @Override
     public String toString() {
         return String.format(
@@ -18,25 +18,25 @@ public class BreezeHacker extends Creatures {
 
     @Override
     public void elementArtASCII() {
-        System.out.println("Elemento Ar...\n"); // Retorna o arte correspondente a criatura em ASCII
+        System.out.println("Elemento Ar...\n");
+        System.out.println("                        ##############                      ");
+        System.out.println("                    ####              @@##                  ");
+        System.out.println("                  ##    ####MMmm####      ##                ");
+        System.out.println("                ##    ##            ::##    ##              ");
+        System.out.println("                    ##    ########++    ##    ##            ");
+        System.out.println("              ##  ##  mm            ##    ##  ##            ");
+        System.out.println("              ##  ::  MM              ##  ##    ##          ");
+        System.out.println("        ++####  ####::                  ..  ##  ##          ");
+        System.out.println("        ##############                  ##  ######  ####    ");
+        System.out.println("    MM################                ####################  ");
+        System.out.println("    ####################              ####################  ");
+        System.out.println("    ######################        ########################  ");
+        System.out.println("        ##################        ######################    ");
+        System.out.println("        ##############..            ################        ");
+        System.out.println("              ####                      ##########          ");
+    } // Retorna o arte correspondente a criatura em ASCII
 
- System.out.println("                        ##############                      ");
- System.out.println("                    ####              @@##                  ");
- System.out.println("                  ##    ####MMmm####      ##                ");
- System.out.println("                ##    ##            ::##    ##              ");
- System.out.println("                    ##    ########++    ##    ##            ");
- System.out.println("              ##  ##  mm            ##    ##  ##            ");
- System.out.println("              ##  ::  MM              ##  ##    ##          ");
- System.out.println("        ++####  ####::                  ..  ##  ##          ");
- System.out.println("        ##############                  ##  ######  ####    ");
- System.out.println("    MM################                ####################  ");
- System.out.println("    ####################              ####################  ");
- System.out.println("    ######################        ########################  ");
- System.out.println("        ##################        ######################    ");
- System.out.println("        ##############..            ################        ");
- System.out.println("              ####                      ##########          ");
-    }
-
+    @Override
     public String elementAttackPhrase() {
         return "Ataque elemental! Prepare-se para ser envolto pela fúria dos ventos, uma tempestade de poder se forma!"; // Retorne
                                                                                                                          // a

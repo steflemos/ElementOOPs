@@ -1,7 +1,7 @@
 
 import java.util.Random;
 
-public abstract class Creatures {
+public abstract class Creature {
 
     // lógica usada para sortear um número inteiro de acordo com as especificações
     // do enunciado da atividade:
@@ -12,7 +12,7 @@ public abstract class Creatures {
     private int lifepoints;
     private Random random;
 
-    public Creatures() {
+    public Creature() {
         random = new Random();
         power = random.nextInt((30 - 10) + 1) + 10;
         attack = random.nextInt((15 - 5) + 1) + 5;

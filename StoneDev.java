@@ -19,7 +19,7 @@ public class StoneDev extends Creature {
 
     @Override
     public void elementArtASCII() {
-        System.out.println("Elemento Terra... +");
+        System.out.println("Elemento Terra... ");
         System.out.println("        --####            ");
         System.out.println("        ##########          ");
         System.out.println("      ####  ##  MM##        ");

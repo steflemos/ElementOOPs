@@ -70,7 +70,7 @@ public class Battle extends ConfirmExit {
 
                 // condicional para verificar os pontos de vida do usuario apos o ataque do
                 // computador:
-                if (playerSelectedCreature.getLifePoints() <= 1) {
+                if (playerSelectedCreature.getLifePoints() < 1) {
                     System.out.println("GAME OVER! Você foi derrotado!");
                     break;
                 }
@@ -89,6 +89,12 @@ public class Battle extends ConfirmExit {
 
                         // condicional para verificar os pontos de vida do computador apos o ataque do
                         // usuario:
+                        if (computerSelectedCreature.getLifePoints() < 1) {
+                            System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n" +
+                                    "\nParabéns! Você foi o vencedor da batalha " + batalha + "\n Vencedor: "
+                                    + playerSelectedCreature.getName());
+                            break;
+                        }
 
                     } else if (userAction == 2) {
                         // metodo de ataque elemental:
@@ -100,7 +106,7 @@ public class Battle extends ConfirmExit {
 
                         // condicional para verificar os pontos de vida do computador apos o ataque do
                         // usuario:
-                        if (computerSelectedCreature.getLifePoints() <= 1) {
+                        if (computerSelectedCreature.getLifePoints() < 1) {
                             System.out.println(computerSelectedCreature.getName() + " foi derrotada!\n" +
                                     "\nParabéns! Você foi o vencedor da batalha " + batalha + "\n Vencedor: "
                                     + playerSelectedCreature.getName());
@@ -124,11 +130,11 @@ public class Battle extends ConfirmExit {
 
             // condicional para exibir uma mensagem especial caso o usuario venca as tres
             // batalhas:
-            if (batalha == 3 && computerSelectedCreature.getLifePoints() <= 1) {
+            if (batalha == 3 && computerSelectedCreature.getLifePoints() < 1) {
                 System.out.println("PARABÉNS! VOCÊ GANHOU AS TRÊS BATALHAS E É CAMPEÃO DO TORNEIO ELEMENTOOPS");
                 break;
                 // elif usado para exibir uma mensagem caso o usuario seja derrotado:
-            } else if (playerSelectedCreature.getLifePoints() <= 1) {
+            } else if (playerSelectedCreature.getLifePoints() < 1) {
                 System.out.println("Usuário derrotado! Batalha encerrada!");
                 break;
             } else {
